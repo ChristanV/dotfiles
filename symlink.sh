@@ -3,6 +3,7 @@ dotfiles=(
   "nvim" 
   "starship-config" 
   "hypr"
+  "wezterm"
 )
 
 for dot in "${dotfiles[@]}"; do
