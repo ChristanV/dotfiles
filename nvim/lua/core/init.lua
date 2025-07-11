@@ -30,3 +30,14 @@ vim.opt.signcolumn = "yes"
 vim.opt.colorcolumn = "80"
 vim.opt.scrolloff = 8
 vim.opt.splitright = true
+
+-- Make transparent
+--vim.cmd [[
+--  hi Normal ctermbg=none guibg=none
+--  hi NormalNC ctermbg=none guibg=none
+--  hi NormalFloat ctermbg=none guibg=none
+--  hi VertSplit ctermbg=none guibg=none
+--  hi StatusLine ctermbg=none guibg=none
+--  hi LineNr ctermbg=none guibg=none
+--]]
+
