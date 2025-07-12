@@ -5,6 +5,8 @@ dotfiles=(
   "starship-config" 
   "hypr"
   "wezterm"
+  "waybar"
+  "xdg-desktop-portal"
 )
 
 for dot in "${dotfiles[@]}"; do

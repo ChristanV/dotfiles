@@ -1,8 +1,7 @@
 #!/usr/bin/env bash
 
 # Init wallpaper deamon
-swww init &
-# swww image ~/Wallpapers/gruvbox.png &
+swww-daemon &
 
 # Applets - pkgs.networkmanagerapplet
 nm-applet --indicator &
@@ -10,4 +9,9 @@ nm-applet --indicator &
 # The bar
 waybar &
 
-dunst
+dunst &
+
+# Polkit authentication daemon
+systemctl --user start hyprpolkitagen &
+
+pipewire 

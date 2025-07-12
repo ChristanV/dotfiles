@@ -135,7 +135,7 @@ config.unix_domains = {
   },
 }
 
-config.default_gui_startup_args = { 'connect', 'nixos' }
+-- config.default_gui_startup_args = { 'connect', 'nixos' }
 
 config.ssh_domains = {
   {
