@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 dotfiles=(
   "nvim" 
   "starship-config" 
