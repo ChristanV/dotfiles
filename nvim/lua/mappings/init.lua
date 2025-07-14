@@ -38,7 +38,7 @@ end, { desc = 'Open current file in vertical split' })
 vim.keymap.set('n', '<S-m>', ':split<CR>', { desc = 'Open current file in vertical split' })
 
 -- General remappings
-vim.keymap.set('n', '<C-.>', '<C-w>w', { desc = 'Cycle through windows', noremap = false, silent = true })
+vim.keymap.set('n', '<S-Tab>', '<C-w>w', { desc = 'Cycle through windows', noremap = true, silent = true })
 vim.keymap.set('n', '<S-l>', ':wincmd l<CR>', { desc = 'Move to the right window', noremap = true, silent = true })
 vim.keymap.set('n', '<S-h>', ':wincmd h<CR>', { desc = 'Move to the left window', noremap = true, silent = true })
 vim.keymap.set('n', '<S-k>', ':wincmd k<CR>', { desc = 'Move to the top window', noremap = true, silent = true })
@@ -60,8 +60,8 @@ vim.keymap.set('n', ']d', vim.diagnostic.get_prev, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 vim.keymap.set('n', '<Space>', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<S-Space>', vim.diagnostic.open_float, { noremap = true, silent = true })
-vim.keymap.set('n', '<Tab>', vim.lsp.buf.definition, { noremap = true, silent = true })
-vim.keymap.set('n', '<S-Tab>', '<C-o>' , { noremap = true, silent = true })
+vim.keymap.set('n', 'y', vim.lsp.buf.definition, { noremap = true, silent = true })
+vim.keymap.set('n', '<S-y>', '<C-o>' , { noremap = true, silent = true })
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- Testing
