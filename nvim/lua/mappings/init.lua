@@ -60,8 +60,8 @@ vim.keymap.set('n', ']d', vim.diagnostic.get_prev, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 vim.keymap.set('n', '<Space>', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<S-Space>', vim.diagnostic.open_float, { noremap = true, silent = true })
-vim.keymap.set('n', 'y', vim.lsp.buf.definition, { noremap = true, silent = true })
-vim.keymap.set('n', '<S-y>', '<C-o>' , { noremap = true, silent = true })
+vim.keymap.set('n', '<S-Up>', vim.lsp.buf.definition, { noremap = true, silent = true })
+vim.keymap.set('n', '<S-Down>', '<C-o>' , { noremap = true, silent = true })
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- Testing
