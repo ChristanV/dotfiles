@@ -1,0 +1,6 @@
+// https://github.com/lbonn/rofi?tab=readme-ov-file
+
+configuration {
+  modes: [ combi ];
+  combi-modes: [ window, drun, run ];
+}

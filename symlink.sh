@@ -7,6 +7,7 @@ dotfiles=(
   "wezterm"
   "waybar"
   "xdg-desktop-portal"
+  "rofi"
 )
 
 for dot in "${dotfiles[@]}"; do
