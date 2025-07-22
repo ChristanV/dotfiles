@@ -11,12 +11,7 @@ Invoke-Expression ((New-Object System.Net.WebClient).DownloadString($chocoInstal
 Write-Host "Verifying installation..." -ForegroundColor Cyan
 choco -v
 
-# Find packages https://community.chocolatey.org/packages
-$packages = @("git", "vscode", "bruno", "awscli", "azure-cli", "azure-kubelogin", "wsl")
+Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux -NoRestart
+Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform -NoRestart
 
-foreach ($pkg in $packages) {
-    Write-Host "Installing $pkg" -ForegroundColor Cyan
-    choco install $pkg -y
-    Write-Host "Installed $pkg" -ForegroundColor Cyan
-}
-
+Restart-Computer
