@@ -1,7 +1,6 @@
 -- https://github.com/David-Kunz/gen.nvim
 require('gen').setup({
-  --model = "qwen3:14b",
-  model = "qwen2.5-coder:14b",
+  model = "qwen2.5-coder:7b",
   url = "localhost",
   port = 11434,
   show_model = true,
