@@ -51,6 +51,11 @@ vim.keymap.set('n', '<leader>k', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap =
 
 -- AI
 vim.keymap.set('n', '<leader>c', ':Gen Chat<CR>', { desc = 'Open gen Chat', noremap = true, silent = false })
+vim.keymap.set('n', '<leader>g', ':ChatGPT<CR>', { desc = 'Open Chatgpt Chat', noremap = true, silent = false })
+vim.keymap.set('n', '<leader>ss', ':SupermavenStart<CR>', { desc = 'Start Super maven', noremap = true, silent = false })
+vim.keymap.set('n', '<leader>st', ':SupermavenStop<CR>', { desc = 'Stop Super maven', noremap = true, silent = false })
+vim.keymap.set('n', '<leader>sf', ':SupermavenUseFree<CR>', { desc = 'Use Supermaven Free tier', noremap = true, silent = false })
+vim.keymap.set('n', '<leader>sp', ':SupermavenUsePro<CR>', { desc = 'Use supermaven pro tier', noremap = true, silent = false })
 
 -- LSP goto's & diagnostic
 local opts = { noremap=true, silent=true }
@@ -60,8 +65,8 @@ vim.keymap.set('n', ']d', vim.diagnostic.get_prev, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 vim.keymap.set('n', '<Space>', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<S-Space>', vim.diagnostic.open_float, { noremap = true, silent = true })
-vim.keymap.set('n', '<S-Up>', vim.lsp.buf.definition, { noremap = true, silent = true })
-vim.keymap.set('n', '<S-Down>', '<C-o>' , { noremap = true, silent = true })
+vim.keymap.set('n', '<S-CR>', vim.lsp.buf.definition, { noremap = true, silent = true })
+vim.keymap.set('n', '<S-space>', '<C-o>' , { noremap = true, silent = true })
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- Testing

@@ -4,7 +4,7 @@ return require('packer').startup(function(use)
   use 'wbthomason/packer.nvim'
   use 'neovim/nvim-lspconfig'
   use 'gruvbox-community/gruvbox'
-  use "EdenEast/nightfox.nvim"
+  use 'EdenEast/nightfox.nvim'
   use 'tiagovla/tokyodark.nvim'
   use 'gbprod/nord.nvim'
   use 'nvim-lua/plenary.nvim'
@@ -28,7 +28,6 @@ return require('packer').startup(function(use)
 
   use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 
-  use { 'David-Kunz/gen.nvim' }
 
   use {
     'ThePrimeagen/harpoon',
@@ -56,6 +55,21 @@ return require('packer').startup(function(use)
   use {
   'lewis6991/gitsigns.nvim',
    requires = { 'nvim-lua/plenary.nvim' },
-}
+  }
 
+  -- AI Plugins
+  -- supermaven copilot 
+  use 'supermaven-inc/supermaven-nvim'
+  -- Local models
+  use { 'David-Kunz/gen.nvim' }
+  -- OpenAI
+  use({
+    'jackMort/ChatGPT.nvim',
+      requires = {
+        'MunifTanjim/nui.nvim',
+        'nvim-lua/plenary.nvim',
+        'folke/trouble.nvim',
+        'nvim-telescope/telescope.nvim'
+      }
+  })
 end)
