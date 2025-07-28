@@ -58,18 +58,6 @@ return require('packer').startup(function(use)
   }
 
   -- AI Plugins
-  -- supermaven copilot 
-  use 'supermaven-inc/supermaven-nvim'
   -- Local models
   use { 'David-Kunz/gen.nvim' }
-  -- OpenAI
-  use({
-    'jackMort/ChatGPT.nvim',
-      requires = {
-        'MunifTanjim/nui.nvim',
-        'nvim-lua/plenary.nvim',
-        'folke/trouble.nvim',
-        'nvim-telescope/telescope.nvim'
-      }
-  })
 end)
