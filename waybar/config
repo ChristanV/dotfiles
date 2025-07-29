@@ -8,10 +8,21 @@
 		"custom/nixos",
 		"custom/right-arrow-dark",
 		"custom/right-arrow-light",
+    "systemd-failed-units",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
     "hyprland/workspaces",
-		"custom/right-arrow-dark"
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+		"tray",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+    "gamemode",
+		"custom/right-arrow-dark",
 	],
 	"modules-center": [
+		"custom/left-arrow-dark",
+		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
 		"clock#1",
 		"custom/left-arrow-light",
@@ -20,9 +31,13 @@
 		"custom/right-arrow-dark",
 		"custom/right-arrow-light",
 		"clock#3",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
 		"custom/right-arrow-dark"
 	],
 	"modules-right": [
+		"custom/left-arrow-dark",
+		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
 		"pulseaudio",
 		"custom/left-arrow-light",
@@ -44,8 +59,9 @@
 		"custom/left-arrow-light",
 		"custom/left-arrow-dark",
 		"network",
-		"tray",
-    "custom/power"
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+    "custom/power",
 	],
 	"custom/nixos": {
 		"format": " ",
@@ -85,7 +101,6 @@
 		"format": "{:%d-%m-%Y}",
 		"tooltip": false
 	},
-
 	"pulseaudio": {
 		"format": "{icon} {volume:2}%",
 		"format-bluetooth": "{icon}  {volume}%",
@@ -104,15 +119,15 @@
 	},
 	"memory": {
 		"interval": 10,
-		"format": " Mem {}%"
+		"format": " {}%"
 	},
 	"cpu": {
 		"interval": 10,
-		"format": " CPU {usage:2}%"
+		"format": " {usage:2}%"
 	},
   "network": {
     "format-wifi": "{essid} ({signalStrength}%) ",
-    "format-ethernet": " 󰈁 ",
+    "format-ethernet": "󰈁",
     "tooltip-format": "{ifname} via {gwaddr} ",
     "format-linked": "{ifname} (No IP) ",
     "format-disconnected": "󰈂",
@@ -120,7 +135,7 @@
   },
 	"disk": {
 		"interval": 5,
-		"format": "  Disk /home{percentage_used:2}% ",
+		"format": "  /home{percentage_used:2}% ",
 		"path": "/home",
 		"on-click-right": "baobab",
 	},
@@ -134,6 +149,7 @@
     "interval": 10
   },
 	"tray": {
+    "spacing": 25,
 		"icon-size": 20
 	},
   "temperature": {
@@ -142,8 +158,27 @@
     "format-icons": ["", "", ""]
   },
   "custom/power": {
-    "format" : " ⏻ ",
+    "format" : "⏻ ",
 		"on-click": "shutdown -h now"
+  },
+  "systemd-failed-units": {
+	  "hide-on-ok": false, // Do not hide if there is zero failed units.
+	  "format": " ✗ {nr_failed}",
+	  "format-ok": "  ",
+	  "system": true,
+	  "user": true 
+  },
+  "gamemode": {
+    "format": "{glyph}",
+    "format-alt": "{glyph} {count}",
+    "glyph": "",
+    "hide-not-running": true,
+    "use-icon": true,
+    "icon-name": "input-gaming-symbolic",
+    "icon-spacing": 4,
+    "icon-size": 20,
+    "tooltip": true,
+    "tooltip-format": "Games running: {count}"
   },
   "hyprland/workspaces": {
     "format": " {icon}: {windows}",

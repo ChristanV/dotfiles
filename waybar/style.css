@@ -78,6 +78,12 @@ window#waybar {
 #custom-nixos {
 	background: #1a1a1a;
 }
+#gamemode {
+	background: #1a1a1a;
+}
+#systemd-failed-units {
+	background: #1a1a1a;
+}
 #workspaces button.active {
   background-color: #1abc9c;
   color: #000000;
@@ -93,6 +99,8 @@ window#waybar {
 #network
 #custom-power
 #tray
+#gamemode
+#systemd-failed-units
 #disk {
 	padding: 0 10px;
 }
