@@ -24,6 +24,13 @@
                 "splitMode": "duplicate"
             },
             "id": "splithorizontal"
+        },
+        {
+            "command": { 
+                "action": "moveFocus", 
+                "direction": "nextInOrder" 
+            },
+            "id": "cyclePane"
         }
     ],
     "copyFormatting": "none",
@@ -32,16 +39,24 @@
     "keybindings": 
     [
         {
+            "id": "cyclePane",
+            "keys": "ctrl+,"
+        },
+        {
+            "id": "Terminal.OpenNewWindow",
+            "keys": "ctrl+d"
+        },
+        {
             "id": "Terminal.DuplicatePaneDown",
             "keys": "ctrl+shift+m"
         },
         {
-            "id": "Terminal.DuplicatePaneAuto",
-            "keys": "ctrl+d"
-        },
-        {
             "id": "Terminal.CopyToClipboard",
             "keys": "ctrl+c"
+        },
+        {
+            "id": null,
+            "keys": "ctrl+shift+n"
         },
         {
             "id": null,
@@ -56,12 +71,12 @@
             "keys": "ctrl+2"
         },
         {
-            "id": "Terminal.SwitchToTab0",
-            "keys": "ctrl+1"
-        },
-        {
             "id": "splitVertical",
             "keys": "ctrl+n"
+        },
+        {
+            "id": "Terminal.SwitchToTab0",
+            "keys": "ctrl+1"
         },
         {
             "id": "splithorizontal",
