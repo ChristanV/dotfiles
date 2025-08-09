@@ -1,0 +1,207 @@
+// -*- mode: json -*-
+
+{
+	"layer": "top",
+	"position": "top",
+
+	"modules-left": [
+		"custom/nixos",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+    "systemd-failed-units",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+    "hyprland/workspaces",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+		"tray",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+    "gamemode",
+		"custom/right-arrow-dark",
+	],
+	"modules-center": [
+		"custom/left-arrow-dark",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"clock#1",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"clock#2",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+		"clock#3",
+		"custom/right-arrow-dark",
+		"custom/right-arrow-light",
+		"custom/right-arrow-dark"
+	],
+	"modules-right": [
+		"custom/left-arrow-dark",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"pulseaudio",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"memory",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"cpu",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+    "custom/gpu",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"disk",
+		"disk#1",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+    "temperature",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+		"network",
+		"custom/left-arrow-light",
+		"custom/left-arrow-dark",
+    "custom/power",
+	],
+	"custom/nixos": {
+		"format": " ",
+		"tooltip": false
+	},
+	"custom/left-arrow-dark": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/left-arrow-light": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right-arrow-dark": {
+		"format": "",
+		"tooltip": false
+	},
+	"custom/right-arrow-light": {
+		"format": "",
+		"tooltip": false
+	},
+
+	"sway/workspaces": {
+		"disable-scroll": true,
+		"format": "{name}"
+	},
+
+	"clock#1": {
+		"format": "{:%A}",
+		"tooltip": false
+	},
+	"clock#2": {
+		"format": "{:%H:%M}",
+		"tooltip": false
+	},
+	"clock#3": {
+		"format": "{:%d-%m-%Y}",
+		"tooltip": false
+	},
+	"pulseaudio": {
+		"format": "{icon} {volume:2}%",
+		"format-bluetooth": "{icon}  {volume}%",
+		"format-muted": "MUTE",
+		"format-icons": {
+			"headphones": "",
+			"default": [
+				" ",
+				" "
+			]
+		},
+		"scroll-step": 5,
+		"on-click": "pamixer -t",
+		"on-click-right": "pavucontrol",
+		"tooltip": true
+	},
+	"memory": {
+		"interval": 10,
+		"format": " {}%"
+	},
+	"cpu": {
+		"interval": 10,
+		"format": " {usage:2}%"
+	},
+  "network": {
+    "format-wifi": "{essid} ({signalStrength}%) ",
+    "format-ethernet": "󰈁",
+    "tooltip-format": "{ifname} via {gwaddr} ",
+    "format-linked": "{ifname} (No IP) ",
+    "format-disconnected": "󰈂",
+    "format-alt": "{ifname}: {ipaddr}/{cidr}"
+  },
+	"disk": {
+		"interval": 5,
+		"format": "  / {percentage_used:2}% ",
+		"path": "/",
+		"on-click-right": "baobab",
+	},
+	"disk#1": {
+		"interval": 5,
+		"format": "/home {percentage_used:2}% ",
+		"path": "/home"
+	},
+  "custom/gpu": {
+    "exec": "~/.config/waybar/scripts/gpu_usage.sh",
+    "interval": 10
+  },
+	"tray": {
+    "spacing": 25,
+		"icon-size": 20
+	},
+  "temperature": {
+    "critical-threshold": 80,
+    "format": " {temperatureC}°C {icon} ",
+    "format-icons": ["", "", ""]
+  },
+  "custom/power": {
+    "format" : "⏻ ",
+		"on-click": "shutdown -h now"
+  },
+  "systemd-failed-units": {
+	  "hide-on-ok": false, // Do not hide if there is zero failed units.
+	  "format": " ✗ {nr_failed}",
+	  "format-ok": "  ",
+	  "system": true,
+	  "user": true 
+  },
+  "gamemode": {
+    "format": "{glyph}",
+    "format-alt": "{glyph} {count}",
+    "glyph": "",
+    "hide-not-running": true,
+    "use-icon": true,
+    "icon-name": "input-gaming-symbolic",
+    "icon-spacing": 4,
+    "icon-size": 20,
+    "tooltip": true,
+    "tooltip-format": "Games running: {count}"
+  },
+  "hyprland/workspaces": {
+    "format": " {icon}: {windows}",
+    "window-rewrite-default": "󰣆 ",
+    "window-rewrite": {
+      "class<.*wezterm.*>": " ",
+      "class<firefox>": " ",
+      "class<google-chrome>": " ",
+      "title<.*youtube.*>": " "
+    },
+    "all-outputs": true,
+    "sort-by": "id",
+    "on-click": "activate",
+    "on-scroll-up": "hyprctl dispatch workspace e+1",
+    "on-scroll-down": "hyprctl dispatch workspace e-1"
+  },
+  "hyprland/window": {
+    "max-length": 100,
+    "format": "{title}",
+    "rewrite": {
+      ".*YouTube.*": "📺 YouTube",
+      ".* - Mozilla Firefox": "🌐 Firefox",
+      ".*code.*": "🧑‍💻 VSCode"
+    }
+  }
+}

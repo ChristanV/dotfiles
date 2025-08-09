@@ -1,0 +1,157 @@
+format = """
+$os\
+[](fg:#769ff0)\
+$username\
+$hostname\
+$directory\
+[](fg:#769ff0 bg:#394260)\
+$git_branch\
+$git_status\
+[](fg:#394260 bg:#212736)\
+$nodejs\
+$rust\
+$golang\
+$java\
+$python\
+$terraform\
+$nix_shell\
+$helm\
+[](fg:#212736 bg:#1d2230)\
+$kubernetes\
+$azure\
+$aws\
+$container\
+[ ](fg:#1d2230)\
+$cmd_duration\
+\n$character"""
+
+[character]
+success_symbol = '[❯](#769ff0)'
+error_symbol = '[❯](#769ff0)'
+
+[os]
+#style = "fg:#e3e5e5 bg:#769ff0"
+format = "$symbol($style)"
+disabled = true
+
+[username]
+show_always = false
+style_user = "fg:#e3e5e5 bg:#769ff0"
+format = "[$user@]($style)"
+disabled = true
+
+[hostname]
+ssh_only = true
+style = "fg:#e3e5e5 bg:#769ff0"
+format = "[$hostname]($style)"
+disabled = true
+
+[directory]
+style = "fg:#e3e5e5 bg:#769ff0"
+format = "[$path]($style)"
+truncation_length = 15
+truncate_to_repo = false
+#truncation_symbol = "…/"
+
+[directory.substitutions]
+"Documents" = "󰈙 "
+"Downloads" = " "
+"Music" = " "
+"Pictures" = " "
+
+[git_branch]
+style = "bg:#394260"
+format = '[[ $symbol $branch ](fg:#769ff0 bg:#394260)]($style)'
+
+[git_status]
+style = "bg:#394260"
+format = '[[$ahead_behind ($all_status)](fg:#769ff0 bg:#394260)]($style)'
+modified = '📝'
+conflicted = '🔥'
+staged = '💾'
+up_to_date = '✓'
+ahead = ''
+behind = ''
+untracked = '󰼅'
+stashed = '📦'
+diverged = '󰦻'
+deleted = ''
+
+[cmd_duration]
+min_time = 1_000
+#style = "bg:#1d2230"
+format = '$duration'
+
+# Languages
+[nodejs]
+symbol = ''
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[terraform]
+symbol = ''
+style = "bg:#212736"
+format = '[[ $symbol ($workspace) ](fg:#769ff0 bg:#212736)]($style)'
+detect_extensions = 	['tf', 'tfplan', 'tfstate', "hcl"]
+
+#[ansible]
+##symbol = ''
+#style = "bg:#212736"
+#format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[rust]
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[golang]
+symbol = ''
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[java]
+symbol = ''
+style = "bg:#212736"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[python]
+symbol = ''
+style = "bg:#212736"
+format = '[[ $symbol ($version venv:$virtualenv) ](fg:#769ff0 bg:#212736)]($style)'
+
+[helm]
+symbol = ''
+style = "bg:#1d2230"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+[nix_shell]
+symbol = ''
+style = "bg:#1d2230"
+format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
+
+# Other
+[time]
+disabled = true
+time_format = "%R" # Hour:Minute Format
+style = "bg:#1d2230"
+format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[aws]
+disabled = false
+symbol ='  '
+style = "bg:#1d2230"
+format = '[[ $symbol$aws($profile)](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[azure]
+disabled = false
+style = "bg:#1d2230"
+format = '[[ $symbol$azure($subscription)](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[kubernetes]
+disabled = false
+symbol = ''
+style = "bg:#1d2230"
+format = '[[ $symbol$kubernetes $context:$namespace](fg:#a0a9cb bg:#1d2230)]($style)'
+
+[container]
+style = "bg:#1d2230"
+format = '[[ $symbol$name ](fg:#a0a9cb bg:#1d2230)]($style)'
