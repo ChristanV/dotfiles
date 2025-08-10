@@ -2,6 +2,9 @@ local wezterm = require 'wezterm'
 local config = wezterm.config_builder()
 local act = wezterm.action
 
+-- ========================================
+-- Appearance
+-- ========================================
 config.font_size = 16
 config.font = wezterm.font 'Hack Nerd Font'
 
@@ -17,6 +20,28 @@ config.window_padding = {
   bottom = 0,
 }
 
+config.use_fancy_tab_bar = false
+config.hide_tab_bar_if_only_one_tab = true
+
+-- ========================================
+-- Multiplexing
+-- ========================================
+config.unix_domains = {
+  {
+    name = 'unix',
+  },
+  {
+    name = 'wsl',
+    socket_path = '/mnt/c/Users/${USERNAME}/.local/share/wezterm/sock',
+    skip_permissions_check = true,
+  },
+}
+
+config.default_gui_startup_args = { 'connect', 'unix' }
+
+-- ========================================
+-- Keybindings
+-- ========================================
 local default_mod = 'CTRL'
 local default_shift_mod = 'CTRL|SHIFT'
 
@@ -107,47 +132,5 @@ for i = 1, 9 do
     action = wezterm.action.ActivateTab(i - 1),
   })
 end
-
--- Multiplexing
--- https://wezterm.org/multiplexing.html#ssh-domains
-config.unix_domains = {
-  {
-    -- The name; must be unique amongst all domains
-    name = 'nixos',
-
-    -- The path to the socket.  If unspecified, a reasonable default
-    -- value will be computed.
-
-    -- socket_path = "/some/path",
-
-    -- If true, do not attempt to start this server if we try and fail to
-    -- connect to it.
-
-    -- no_serve_automatically = false,
-
-    -- If true, bypass checking for secure ownership of the
-    -- socket_path.  This is not recommended on a multi-user
-    -- system, but is useful for example when running the
-    -- server inside a WSL container but with the socket
-    -- on the host NTFS volume.
-
-    -- skip_permissions_check = false,
-  },
-}
-
--- config.default_gui_startup_args = { 'connect', 'nixos' }
-
-config.ssh_domains = {
-  {
-    -- This name identifies the domain
-    name = 'my.server',
-    -- The hostname or address to connect to. Will be used to match settings
-    -- from your ssh config file
-    remote_address = '192.168.1.1',
-    -- The username to use on the remote host
-    username = 'chrisdevops',
-  },
-}
-
 
 return config
