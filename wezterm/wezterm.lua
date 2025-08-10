@@ -35,13 +35,6 @@ if wezterm.target_triple:find('windows') then
     },
   }
   config.default_domain = 'WSL:NixOS'
-else
-  config.unix_domains = {
-    {
-      name = 'unix',
-    }
-  }
-  config.default_gui_startup_args = { 'connect', 'unix' }
 end
 
 -- ========================================
