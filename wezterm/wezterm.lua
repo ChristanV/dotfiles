@@ -24,15 +24,25 @@ config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
 
 -- ========================================
--- Multiplexing
+-- Multiplexing & domains
 -- ========================================
-config.unix_domains = {
-  {
-    name = 'unix',
+if wezterm.target_triple:find('windows') then
+  config.wsl_domains = {
+    {
+      name = 'WSL:NixOS',
+      distribution = 'NixOS',
+      default_cwd = "~"
+    },
   }
-}
-
-config.default_gui_startup_args = { 'connect', 'unix' }
+  config.default_domain = 'WSL:NixOS'
+else
+  config.unix_domains = {
+    {
+      name = 'unix',
+    }
+  }
+  config.default_gui_startup_args = { 'connect', 'unix' }
+end
 
 -- ========================================
 -- Keybindings
