@@ -29,12 +29,7 @@ config.hide_tab_bar_if_only_one_tab = true
 config.unix_domains = {
   {
     name = 'unix',
-  },
-  {
-    name = 'wsl',
-    socket_path = '/mnt/c/Users/${USERNAME}/.local/share/wezterm/sock',
-    skip_permissions_check = true,
-  },
+  }
 }
 
 config.default_gui_startup_args = { 'connect', 'unix' }
