@@ -118,18 +118,20 @@ require'lspconfig'.yamlls.setup {
 
 require'lspconfig'.terraformls.setup{
   capabilities = capabilities,
-  filetypes = { "terraform", "terraform-vars" }
+  filetypes = { "terraform" },
+  root_dir = function(fname)
+    -- Explicitly exclude .tfvars files https://github.com/hashicorp/terraform-ls/issues/1838
+    if fname:match("%.tfvars$") or fname:match("%.auto%.tfvars$") then
+      return nil
+    end
+      return require('lspconfig.util').root_pattern('.terraform', '.git', '*.tf')(fname)
+  end,
 }
 
 require'lspconfig'.tflint.setup{
   capabilities = capabilities
 }
 
-vim.cmd([[silent! autocmd! filetypedetect BufRead,BufNewFile *.tf]])
-vim.cmd([[autocmd BufRead,BufNewFile *.hcl set filetype=hcl]])
-vim.cmd([[autocmd BufRead,BufNewFile .terraformrc,terraform.rc set filetype=hcl]])
-vim.cmd([[autocmd BufRead,BufNewFile *.tf,*.tfvars set filetype=terraform]])
-vim.cmd([[autocmd BufRead,BufNewFile *.tfstate,*.tfstate.backup set filetype=json]])
 vim.cmd([[let g:terraform_fmt_on_save=1]])
 vim.cmd([[let g:terraform_align=1]])
 
