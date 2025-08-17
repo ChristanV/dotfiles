@@ -13,8 +13,9 @@ $packages = @(
     "Notion.Notion",
     "wez.wezterm",
     "Microsoft.PowerToys",
-    "Microsoft.PCManager",
-    "DevToys-app.DevToys"
+    "Microsoft.PCManager.Beta",
+    "DevToys-app.DevToys",
+    "glzr-io.glazewm"
 )
 
 foreach ($pkg in $packages) {
