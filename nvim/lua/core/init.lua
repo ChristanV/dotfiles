@@ -31,6 +31,8 @@ vim.opt.colorcolumn = "80"
 vim.opt.scrolloff = 8
 vim.opt.splitright = true
 
+vim.opt.clipboard = "unnamedplus"
+
 -- Make transparent
 --vim.cmd [[
 --  hi Normal ctermbg=none guibg=none
