@@ -166,7 +166,7 @@
 	  "format": " ✗ {nr_failed}",
 	  "format-ok": "  ",
 	  "system": true,
-	  "user": true 
+	  "user": true
   },
   "gamemode": {
     "format": "{glyph}",

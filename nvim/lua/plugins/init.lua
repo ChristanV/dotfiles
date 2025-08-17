@@ -13,8 +13,8 @@ return require('packer').startup(function(use)
   use 'nvim-tree/nvim-web-devicons'
 
   use {
-   'nvim-telescope/telescope.nvim', tag = '0.1.6',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    'nvim-telescope/telescope.nvim', tag = '0.1.6',
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
   use 'hashivim/vim-terraform'
@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
   use {
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
-    requires = { {'nvim-lua/plenary.nvim'} }
+    requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
   use {
@@ -46,30 +46,30 @@ return require('packer').startup(function(use)
     after = { 'nvim-treesitter' },
     requires = { 'nvim-tree/nvim-web-devicons', opt = true },
     config = function()
-        require('render-markdown').setup({
-          completions = { lsp = { enabled = true } },
-        })
+      require('render-markdown').setup({
+        completions = { lsp = { enabled = true } },
+      })
     end,
   }
 
   use {
-  'lewis6991/gitsigns.nvim',
-   requires = { 'nvim-lua/plenary.nvim' },
+    'lewis6991/gitsigns.nvim',
+    requires = { 'nvim-lua/plenary.nvim' },
   }
 
   -- AI Plugins
-  -- supermaven copilot 
+  -- supermaven copilot
   use 'supermaven-inc/supermaven-nvim'
   -- Local models
   use { 'David-Kunz/gen.nvim' }
   -- OpenAI
   use({
     'jackMort/ChatGPT.nvim',
-      requires = {
-        'MunifTanjim/nui.nvim',
-        'nvim-lua/plenary.nvim',
-        'folke/trouble.nvim',
-        'nvim-telescope/telescope.nvim'
-      }
+    requires = {
+      'MunifTanjim/nui.nvim',
+      'nvim-lua/plenary.nvim',
+      'folke/trouble.nvim',
+      'nvim-telescope/telescope.nvim'
+    }
   })
 end)

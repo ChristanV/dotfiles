@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 dotfiles=(
-  "nvim" 
-  "starship-config" 
+  "nvim"
+  "starship-config"
   "hypr"
   "wezterm"
   "waybar"

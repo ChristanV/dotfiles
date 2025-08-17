@@ -42,4 +42,3 @@ vim.opt.clipboard = "unnamedplus"
 --  hi StatusLine ctermbg=none guibg=none
 --  hi LineNr ctermbg=none guibg=none
 --]]
-
