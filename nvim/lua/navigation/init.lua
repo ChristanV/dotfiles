@@ -5,7 +5,7 @@ vim.g.loaded_netrwPlugin = 1
 
 vim.opt.termguicolors = true
 
-require'nvim-tree'.setup({
+require 'nvim-tree'.setup({
   sort = {
     sorter = "case_sensitive",
   },
@@ -117,7 +117,6 @@ harpoon:extend(harpoon_extensions.builtins.highlight_current_file())
 -- run toggle function before and after selection as workaround to not have
 -- flashing text when switching from tree view
 function NAVIGATION.harpoon_switch(index)
-
   local item = harpoon:list():get(index)
   if item then
     NAVIGATION.toggle_tree()

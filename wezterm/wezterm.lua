@@ -46,24 +46,24 @@ local default_shift_mod = 'CTRL|SHIFT'
 -- timeout_milliseconds defaults to 1000 and can be omitted
 config.keys = {
   {
-      key = 'n',
-      mods = default_mod,
-      action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
+    key = 'n',
+    mods = default_mod,
+    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
   {
-      key = 'm',
-      mods = default_mod,
-      action = act.SplitVertical { domain = 'CurrentPaneDomain' },
+    key = 'm',
+    mods = default_mod,
+    action = act.SplitVertical { domain = 'CurrentPaneDomain' },
   },
   {
-      key = 't',
-      mods = default_mod,
-      action = act.SpawnTab 'CurrentPaneDomain'
+    key = 't',
+    mods = default_mod,
+    action = act.SpawnTab 'CurrentPaneDomain'
   },
   {
-      key = 'd',
-      mods = default_mod,
-      action = act.SpawnWindow
+    key = 'd',
+    mods = default_mod,
+    action = act.SpawnWindow
   },
   {
     key = ',',
@@ -83,12 +83,12 @@ config.keys = {
   {
     key = 'i',
     mods = default_mod,
-    action = act.DisableDefaultAssignment --Disable for reuse in neovim 
+    action = act.DisableDefaultAssignment --Disable for reuse in neovim
   },
   {
     key = 'i',
     mods = default_mod,
-    action = act.DisableDefaultAssignment --Disable for reuse in neovim 
+    action = act.DisableDefaultAssignment --Disable for reuse in neovim
   },
   {
     key = 'w',

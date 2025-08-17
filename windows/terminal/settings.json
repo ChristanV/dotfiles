@@ -1,14 +1,14 @@
 {
     "$help": "https://aka.ms/terminal-documentation",
     "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions": 
+    "actions":
     [
         {
             "command": "duplicateTab",
             "id": "duplicateTab"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "right",
@@ -17,7 +17,7 @@
             "id": "splitVertical"
         },
         {
-            "command": 
+            "command":
             {
                 "action": "splitPane",
                 "split": "down",
@@ -26,9 +26,9 @@
             "id": "splithorizontal"
         },
         {
-            "command": { 
-                "action": "moveFocus", 
-                "direction": "nextInOrder" 
+            "command": {
+                "action": "moveFocus",
+                "direction": "nextInOrder"
             },
             "id": "cyclePane"
         }
@@ -36,7 +36,7 @@
     "copyFormatting": "none",
     "copyOnSelect": false,
     "defaultProfile": "{b1d3b834-ef7f-4bc6-9085-bcea3cd72195}",
-    "keybindings": 
+    "keybindings":
     [
         {
             "id": "cyclePane",
@@ -139,23 +139,23 @@
             "keys": "ctrl+shift+v"
         }
     ],
-    "newTabMenu": 
+    "newTabMenu":
     [
         {
             "type": "remainingProfiles"
         }
     ],
-    "profiles": 
+    "profiles":
     {
-        "defaults": 
+        "defaults":
         {
             "colorScheme": "One Half Dark",
-            "font": 
+            "font":
             {
                 "face": "Hack Nerd Font, Symbols Nerd Font"
             }
         },
-        "list": 
+        "list":
         [
             {
                 "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
