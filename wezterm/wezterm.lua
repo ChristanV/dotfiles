@@ -12,7 +12,7 @@ config.font = wezterm.font 'Hack Nerd Font'
 config.color_scheme = 'nord'
 --config.color_scheme = 'nightfox'
 
-config.window_background_opacity = 0.5 --1.0 for full
+config.window_background_opacity = 0.9 --1.0 for full
 config.window_padding = {
   left = 0,
   right = 0,
@@ -22,6 +22,7 @@ config.window_padding = {
 
 config.use_fancy_tab_bar = false
 config.hide_tab_bar_if_only_one_tab = true
+config.adjust_window_size_when_changing_font_size = false
 
 -- ========================================
 -- Multiplexing & domains
