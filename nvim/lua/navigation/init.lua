@@ -136,4 +136,37 @@ function NAVIGATION.harpoon_toggle_quick_menu()
   harpoon.ui:toggle_quick_menu(harpoon:list())
 end
 
+function NAVIGATION.jump_to_definition()
+  vim.lsp.buf.definition({
+    on_list = function(options)
+      if options.items and #options.items > 0 then
+        -- Jump to the first definition
+        vim.fn.setqflist({}, ' ', options)
+        vim.cmd('cfirst')
+
+        -- Get the file after jumping
+        vim.defer_fn(function()
+          local target_file = vim.api.nvim_buf_get_name(0)
+          NAVIGATION.toggle_tree()
+          NAVIGATION.toggle_tree()
+          NAVIGATION.focus_on_current_file(target_file)
+        end, 50) -- Small delay to ensure jump completes
+      end
+    end
+  })
+end
+
+function NAVIGATION.jump_file(cmd)
+  local keys = vim.api.nvim_replace_termcodes(cmd, true, false, true)
+  vim.api.nvim_feedkeys(keys, 'n', false)
+
+  -- Get the file after jumping
+  vim.defer_fn(function()
+    local target_file = vim.api.nvim_buf_get_name(0)
+    NAVIGATION.toggle_tree()
+    NAVIGATION.toggle_tree()
+    NAVIGATION.focus_on_current_file(target_file)
+  end, 50)
+end
+
 return NAVIGATION
