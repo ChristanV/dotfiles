@@ -67,8 +67,10 @@ vim.keymap.set('n', ']d', vim.diagnostic.get_prev, opts)
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 vim.keymap.set('n', '<Space>', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<S-Space>', vim.diagnostic.open_float, { noremap = true, silent = true })
-vim.keymap.set('n', '<S-up>', vim.lsp.buf.definition, { noremap = true, silent = true })
-vim.keymap.set('n', '<S-down>', '<C-o>', { noremap = true, silent = true })
+vim.keymap.set('n', '<S-up>', navigation.jump_to_definition, { noremap = true, silent = true })
+vim.keymap.set('n', '<S-down>', function() navigation.jump_file('<C-o>') end, { noremap = true, silent = true })
+vim.keymap.set('n', '<S-right>', function() navigation.jump_file('<C-i>') end, { noremap = true, silent = true })
+vim.keymap.set('n', '<S-left>', function() navigation.jump_file('<C-o>') end, { noremap = true, silent = true })
 vim.keymap.set('n', '<space>q', vim.diagnostic.setloclist, opts)
 
 -- Testing
