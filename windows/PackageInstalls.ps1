@@ -16,6 +16,7 @@ $packages = @(
     "Microsoft.PCManager.Beta",
     "DevToys-app.DevToys",
     "glzr-io.glazewm"
+    "Microsoft.PowerBI"
 )
 
 foreach ($pkg in $packages) {
