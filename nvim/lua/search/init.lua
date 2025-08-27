@@ -19,6 +19,10 @@ require 'telescope'.setup({
       "--glob=!**/yarn.lock",
       "--glob=!**/package-lock.json",
       "--glob=**/.github/**", -- Allow searching github workflows
+      "--glob=**"
+    },
+    layout_config = {
+      horizontal = { width = 0.9, height = 0.9 }
     },
   },
 })
