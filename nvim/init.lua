@@ -7,6 +7,9 @@ require('search')
 require('uml')
 require('git')
 require('mappings')
-require('ai/supermaven')
-require('ai/gen')
-require('ai/chatgpt')
+
+if os.getenv("NVIM_ENABLE_AI") then
+  require('ai/supermaven')
+  require('ai/gen')
+  require('ai/chatgpt')
+end
