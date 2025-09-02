@@ -115,7 +115,7 @@ format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 [python]
 symbol = ''
 style = "bg:#212736"
-format = '[[ $symbol ($version venv:$virtualenv) ](fg:#769ff0 bg:#212736)]($style)'
+format = '[[ $symbol ($version $virtualenv) ](fg:#769ff0 bg:#212736)]($style)'
 
 [helm]
 symbol = ''
@@ -140,7 +140,7 @@ format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 disabled = false
 symbol ='  '
 style = "bg:#1d2230"
-format = '[[ $symbol$aws$profile:$region$duration](fg:#a0a9cb bg:#1d2230)]($style)'
+format = '[[ $symbol$aws$profile](fg:#a0a9cb bg:#1d2230)]($style)'
 
 [azure]
 disabled = false
