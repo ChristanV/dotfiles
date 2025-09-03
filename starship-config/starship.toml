@@ -50,7 +50,7 @@ disabled = true
 style = "fg:#e3e5e5 bg:#769ff0"
 format = "[$path]($style)"
 truncation_length = 15
-truncate_to_repo = false #truncation_symbol = "…/"
+truncate_to_repo = false        #truncation_symbol = "…/"
 
 [directory.substitutions]
 "Documents" = "󰈙 "
@@ -91,7 +91,7 @@ format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 symbol = ''
 style = "bg:#212736"
 format = '[[ $symbol ($version $workspace)](fg:#769ff0 bg:#212736)]($style)'
-detect_extensions = 	['tf', 'tfplan', 'tfstate', "hcl"]
+detect_extensions = ['tf', 'tfplan', 'tfstate', "hcl"]
 
 #[ansible]
 ##symbol = ''
@@ -132,13 +132,13 @@ format = 'via [$symbol(\($name\))](bold blue)'
 # Other
 [time]
 disabled = true
-time_format = "%R" # Hour:Minute Format
+time_format = "%R"                                      # Hour:Minute Format
 style = "bg:#1d2230"
 format = '[[  $time ](fg:#a0a9cb bg:#1d2230)]($style)'
 
 [aws]
 disabled = false
-symbol ='  '
+symbol = '  '
 style = "bg:#1d2230"
 format = '[[ $symbol$aws$profile](fg:#a0a9cb bg:#1d2230)]($style)'
 
