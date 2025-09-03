@@ -1,197 +1,188 @@
 {
-    "$help": "https://aka.ms/terminal-documentation",
-    "$schema": "https://aka.ms/terminal-profiles-schema",
-    "actions":
-    [
-        {
-            "command": "duplicateTab",
-            "id": "duplicateTab"
-        },
-        {
-            "command":
-            {
-                "action": "splitPane",
-                "split": "right",
-                "splitMode": "duplicate"
-            },
-            "id": "splitVertical"
-        },
-        {
-            "command":
-            {
-                "action": "splitPane",
-                "split": "down",
-                "splitMode": "duplicate"
-            },
-            "id": "splithorizontal"
-        },
-        {
-            "command": {
-                "action": "moveFocus",
-                "direction": "nextInOrder"
-            },
-            "id": "cyclePane"
-        }
-    ],
-    "copyFormatting": "none",
-    "copyOnSelect": false,
-    "defaultProfile": "{b1d3b834-ef7f-4bc6-9085-bcea3cd72195}",
-    "keybindings":
-    [
-        {
-            "id": "cyclePane",
-            "keys": "ctrl+,"
-        },
-        {
-            "id": "Terminal.OpenNewWindow",
-            "keys": "ctrl+d"
-        },
-        {
-            "id": "Terminal.DuplicatePaneDown",
-            "keys": "ctrl+shift+m"
-        },
-        {
-            "id": "Terminal.CopyToClipboard",
-            "keys": "ctrl+c"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+n"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+4"
-        },
-        {
-            "id": "Terminal.FindText",
-            "keys": "ctrl+shift+f"
-        },
-        {
-            "id": "Terminal.SwitchToTab1",
-            "keys": "ctrl+2"
-        },
-        {
-            "id": "splitVertical",
-            "keys": "ctrl+n"
-        },
-        {
-            "id": "Terminal.SwitchToTab0",
-            "keys": "ctrl+1"
-        },
-        {
-            "id": "splithorizontal",
-            "keys": "ctrl+m"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+2"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+1"
-        },
-        {
-            "id": "Terminal.SwitchToTab2",
-            "keys": "ctrl+3"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+3"
-        },
-        {
-            "id": "Terminal.SwitchToTab3",
-            "keys": "ctrl+4"
-        },
-        {
-            "id": "Terminal.SwitchToTab4",
-            "keys": "ctrl+5"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+alt+5"
-        },
-        {
-            "id": null,
-            "keys": "alt+shift+plus"
-        },
-        {
-            "id": null,
-            "keys": "alt+shift+minus"
-        },
-        {
-            "id": "Terminal.ClosePane",
-            "keys": "ctrl+w"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+w"
-        },
-        {
-            "id": "Terminal.OpenNewTab",
-            "keys": "ctrl+t"
-        },
-        {
-            "id": null,
-            "keys": "ctrl+shift+t"
-        },
-        {
-            "id": "Terminal.PasteFromClipboard",
-            "keys": "ctrl+shift+v"
-        }
-    ],
-    "newTabMenu":
-    [
-        {
-            "type": "remainingProfiles"
-        }
-    ],
-    "profiles":
+  "$help": "https://aka.ms/terminal-documentation",
+  "$schema": "https://aka.ms/terminal-profiles-schema",
+  "actions": [
     {
-        "defaults":
-        {
-            "colorScheme": "One Half Dark",
-            "font":
-            {
-                "face": "Hack Nerd Font, Symbols Nerd Font"
-            }
-        },
-        "list":
-        [
-            {
-                "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
-                "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
-                "hidden": false,
-                "name": "Windows PowerShell"
-            },
-            {
-                "commandline": "%SystemRoot%\\System32\\cmd.exe",
-                "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
-                "hidden": false,
-                "name": "Command Prompt"
-            },
-            {
-                "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
-                "hidden": false,
-                "name": "Azure Cloud Shell",
-                "source": "Windows.Terminal.Azure"
-            },
-            {
-                "commandline": "wsl.exe -d NixOS",
-                "guid": "{b1d3b834-ef7f-4bc6-9085-bcea3cd72195}",
-                "hidden": false,
-                "icon": "C:\\wsl\\NixOS.png",
-                "name": "NixOs",
-                "startingDirectory": "~"
-            },
-            {
-                "guid": "{c397f356-5e7b-55bc-956b-8cb4b9762c26}",
-                "hidden": true,
-                "name": "NixOS",
-                "source": "Windows.Terminal.Wsl"
-            }
-        ]
+      "command": "duplicateTab",
+      "id": "duplicateTab"
     },
-    "schemes": [],
-    "themes": [],
-    "windowingBehavior": "useAnyExisting"
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "right",
+        "splitMode": "duplicate"
+      },
+      "id": "splitVertical"
+    },
+    {
+      "command": {
+        "action": "splitPane",
+        "split": "down",
+        "splitMode": "duplicate"
+      },
+      "id": "splithorizontal"
+    },
+    {
+      "command": {
+        "action": "moveFocus",
+        "direction": "nextInOrder"
+      },
+      "id": "cyclePane"
+    }
+  ],
+  "copyFormatting": "none",
+  "copyOnSelect": false,
+  "defaultProfile": "{b1d3b834-ef7f-4bc6-9085-bcea3cd72195}",
+  "keybindings": [
+    {
+      "id": "cyclePane",
+      "keys": "ctrl+,"
+    },
+    {
+      "id": "Terminal.OpenNewWindow",
+      "keys": "ctrl+d"
+    },
+    {
+      "id": "Terminal.DuplicatePaneDown",
+      "keys": "ctrl+shift+m"
+    },
+    {
+      "id": "Terminal.CopyToClipboard",
+      "keys": "ctrl+c"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+n"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+4"
+    },
+    {
+      "id": "Terminal.FindText",
+      "keys": "ctrl+shift+f"
+    },
+    {
+      "id": "Terminal.SwitchToTab1",
+      "keys": "ctrl+2"
+    },
+    {
+      "id": "splitVertical",
+      "keys": "ctrl+n"
+    },
+    {
+      "id": "Terminal.SwitchToTab0",
+      "keys": "ctrl+1"
+    },
+    {
+      "id": "splithorizontal",
+      "keys": "ctrl+m"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+2"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+1"
+    },
+    {
+      "id": "Terminal.SwitchToTab2",
+      "keys": "ctrl+3"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+3"
+    },
+    {
+      "id": "Terminal.SwitchToTab3",
+      "keys": "ctrl+4"
+    },
+    {
+      "id": "Terminal.SwitchToTab4",
+      "keys": "ctrl+5"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+alt+5"
+    },
+    {
+      "id": null,
+      "keys": "alt+shift+plus"
+    },
+    {
+      "id": null,
+      "keys": "alt+shift+minus"
+    },
+    {
+      "id": "Terminal.ClosePane",
+      "keys": "ctrl+w"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+w"
+    },
+    {
+      "id": "Terminal.OpenNewTab",
+      "keys": "ctrl+t"
+    },
+    {
+      "id": null,
+      "keys": "ctrl+shift+t"
+    },
+    {
+      "id": "Terminal.PasteFromClipboard",
+      "keys": "ctrl+shift+v"
+    }
+  ],
+  "newTabMenu": [
+    {
+      "type": "remainingProfiles"
+    }
+  ],
+  "profiles": {
+    "defaults": {
+      "colorScheme": "One Half Dark",
+      "font": {
+        "face": "Hack Nerd Font, Symbols Nerd Font"
+      }
+    },
+    "list": [
+      {
+        "commandline": "%SystemRoot%\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "guid": "{61c54bbd-c2c6-5271-96e7-009a87ff44bf}",
+        "hidden": false,
+        "name": "Windows PowerShell"
+      },
+      {
+        "commandline": "%SystemRoot%\\System32\\cmd.exe",
+        "guid": "{0caa0dad-35be-5f56-a8ff-afceeeaa6101}",
+        "hidden": false,
+        "name": "Command Prompt"
+      },
+      {
+        "guid": "{b453ae62-4e3d-5e58-b989-0a998ec441b8}",
+        "hidden": false,
+        "name": "Azure Cloud Shell",
+        "source": "Windows.Terminal.Azure"
+      },
+      {
+        "commandline": "wsl.exe -d NixOS",
+        "guid": "{b1d3b834-ef7f-4bc6-9085-bcea3cd72195}",
+        "hidden": false,
+        "icon": "C:\\wsl\\NixOS.png",
+        "name": "NixOs",
+        "startingDirectory": "~"
+      },
+      {
+        "guid": "{c397f356-5e7b-55bc-956b-8cb4b9762c26}",
+        "hidden": true,
+        "name": "NixOS",
+        "source": "Windows.Terminal.Wsl"
+      }
+    ]
+  },
+  "schemes": [],
+  "themes": [],
+  "windowingBehavior": "useAnyExisting"
 }
