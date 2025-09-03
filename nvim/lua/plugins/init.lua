@@ -72,4 +72,5 @@ return require('packer').startup(function(use)
       'nvim-telescope/telescope.nvim'
     }
   })
+  use { 'github/copilot.vim', tag = 'v1.53.0' }
 end)
