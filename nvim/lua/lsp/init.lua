@@ -21,11 +21,12 @@ vim.diagnostic.config({
   severity_sort = true,
 })
 
-require 'lspconfig'.bashls.setup {
+vim.lsp.config('bashls', {
   capabilities = capabilities
-}
+})
+vim.lsp.enable('bashls')
 
-require 'lspconfig'.nixd.setup {
+vim.lsp.config('nixd', {
   capabilities = capabilities,
   settings = {
     nixd = {
@@ -37,7 +38,8 @@ require 'lspconfig'.nixd.setup {
       }
     }
   }
-}
+})
+vim.lsp.enable('nixd')
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.nix",
@@ -46,19 +48,23 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
-require 'lspconfig'.dockerls.setup {
-  capabilities = capabilities
-}
+vim.lsp.config('dockerls', {
+  capabilities = capabilities,
+})
+vim.lsp.enable('dockerls')
 
-require 'lspconfig'.jdtls.setup {
-  capabilities = capabilities
-}
+--vim.lsp.config('jdtls', {
+--  capabilities = capabilities,
+--  cmd = { 'jdtls' },
+--})
+--vim.lsp.enable('jdtls')
 
-require 'lspconfig'.gopls.setup {
-  capabilities = capabilities
-}
+vim.lsp.config('gopls', {
+  capabilities = capabilities,
+})
+vim.lsp.enable('gopls')
 
-require 'lspconfig'.ts_ls.setup {
+vim.lsp.config('ts_ls', {
   capabilities = capabilities,
   flags = lsp_flags,
   init_options = {
@@ -75,40 +81,58 @@ require 'lspconfig'.ts_ls.setup {
     "typescript",
     "vue",
   },
-}
+})
+vim.lsp.enable('ts_ls')
 
-require 'lspconfig'.lua_ls.setup {
-  capabilities = capabilities,
+vim.lsp.config('lua_ls', {
   on_init = function(client)
-    local path = client.workspace_folders[1].name
-    if vim.loop.fs_stat(path .. '/.luarc.json') or vim.loop.fs_stat(path .. '/.luarc.jsonc') then
-      return
+    if client.workspace_folders then
+      local path = client.workspace_folders[1].name
+      if
+          path ~= vim.fn.stdpath('config')
+          and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+      then
+        return
+      end
     end
 
     client.config.settings.Lua = vim.tbl_deep_extend('force', client.config.settings.Lua, {
       runtime = {
-        -- Tell the language server which version of Lua you're using
-        -- (most likely LuaJIT in the case of Neovim)
-        version = 'LuaJIT'
+        -- Tell the language server which version of Lua you're using (most
+        -- likely LuaJIT in the case of Neovim)
+        version = 'LuaJIT',
+        -- Tell the language server how to find Lua modules same way as Neovim
+        -- (see `:h lua-module-load`)
+        path = {
+          'lua/?.lua',
+          'lua/?/init.lua',
+        },
       },
       -- Make the server aware of Neovim runtime files
       workspace = {
         checkThirdParty = false,
         library = {
           vim.env.VIMRUNTIME
-          -- Depending on the usage, you might want to add additional paths here.
-          -- "${3rd}/luv/library"
-          -- "${3rd}/busted/library",
+          -- Depending on the usage, you might want to add additional paths
+          -- here.
+          -- '${3rd}/luv/library'
+          -- '${3rd}/busted/library'
         }
-        -- or pull in all of 'runtimepath'. NOTE: this is a lot slower
-        -- library = vim.api.nvim_get_runtime_file("", true)
+        -- Or pull in all of 'runtimepath'.
+        -- NOTE: this is a lot slower and will cause issues when working on
+        -- your own configuration.
+        -- See https://github.com/neovim/nvim-lspconfig/issues/3189
+        -- library = {
+        --   vim.api.nvim_get_runtime_file('', true),
+        -- }
       }
     })
   end,
   settings = {
     Lua = {}
   }
-}
+})
+vim.lsp.enable('lua_ls')
 
 vim.api.nvim_create_autocmd("BufWritePre", {
   pattern = "*.lua",
@@ -117,13 +141,14 @@ vim.api.nvim_create_autocmd("BufWritePre", {
   end,
 })
 
-require 'lspconfig'.yamlls.setup {
+vim.lsp.config('yamlls', {
   capabilities = capabilities,
   settings = {
     yaml = {
       schemas = {
         ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
-        ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] = "/*.k8s.yaml",
+        ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] =
+        "/*.k8s.yaml",
       },
     },
   },
@@ -131,28 +156,25 @@ require 'lspconfig'.yamlls.setup {
     "yaml",
     "yml",
   },
-}
+})
+vim.lsp.enable('yamlls')
 
-require 'lspconfig'.terraformls.setup {
-  capabilities = capabilities,
-  filetypes = { "terraform" },
-  root_dir = function(fname)
-    -- Explicitly exclude .tfvars files https://github.com/hashicorp/terraform-ls/issues/1838
-    if fname:match("%.tfvars$") or fname:match("%.auto%.tfvars$") then
-      return nil
-    end
-    return require('lspconfig.util').root_pattern('.terraform', '.git', '*.tf')(fname)
-  end,
-}
+vim.lsp.config('terraformls', {
+  filetypes = { 'terraform', 'terraform-vars' },
+  root_dir = vim.fs.root(0, { '.terraform', '.git' }),
+})
 
-require 'lspconfig'.tflint.setup {
+vim.lsp.enable('terraformls')
+
+vim.lsp.config('tflint', {
   capabilities = capabilities
-}
+})
+vim.lsp.enable('tflint')
 
 vim.cmd([[let g:terraform_fmt_on_save=1]])
 vim.cmd([[let g:terraform_align=1]])
 
-require 'lspconfig'.ansiblels.setup {
+vim.lsp.config('ansiblels', {
   capabilities = capabilities,
   filetypes = { "yml" },
   settings = {
@@ -173,17 +195,21 @@ require 'lspconfig'.ansiblels.setup {
       }
     }
   }
-}
+})
+vim.lsp.enable('ansiblels')
 
-require 'lspconfig'['pyright'].setup {
+vim.lsp.config('pyright', {
   capabilities = capabilities,
   flags = lsp_flags,
-}
+})
+vim.lsp.enable('pyright')
 
-require 'lspconfig'.helm_ls.setup {
-  capabilities = capabilities
-}
+vim.lsp.config('helm_ls', {
+  capabilities = capabilities,
+})
+vim.lsp.enable('helm_ls')
 
-require 'lspconfig'.postgres_lsp.setup {
-  capabilities = capabilities
-}
+vim.lsp.config('postgres_lsp', {
+  capabilities = capabilities,
+})
+vim.lsp.enable('postgres_lsp')
