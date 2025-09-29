@@ -48,6 +48,7 @@ return require('packer').startup(function(use)
     config = function()
       require('render-markdown').setup({
         completions = { lsp = { enabled = true } },
+        file_types = { 'markdown', 'copilot-chat' },
       })
     end,
   }
@@ -73,4 +74,8 @@ return require('packer').startup(function(use)
     }
   })
   use { 'github/copilot.vim', tag = 'v1.53.0' }
+  use {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    requires = { { 'nvim-lua/plenary.nvim' } }
+  }
 end)
