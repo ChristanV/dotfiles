@@ -7,4 +7,6 @@ configuration {
 
 //@theme "/nix/store/4sn4ydpa872qgwp41kspa5lfdbgd8s5x-rofi-1.7.9+wayland1/share/rofi/themes/fullscreen-preview.rasi"
 
-@theme "/nix/store/4p8f4jz6a4qv7c4gmlm367vyfjvhnplk-rofi-1.7.9+wayland1/share/rofi/themes/fullscreen-preview.rasi"
+//@theme "/nix/store/4p8f4jz6a4qv7c4gmlm367vyfjvhnplk-rofi-1.7.9+wayland1/share/rofi/themes/fullscreen-preview.rasi"
+
+@theme "/nix/store/bga51s0fxznmdvpmjnq7kvmgy7ygx9r8-rofi-2.0.0/share/rofi/themes/fullscreen-preview.rasi"
