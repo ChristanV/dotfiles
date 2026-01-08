@@ -62,7 +62,7 @@ config.keys = {
     action = act.SpawnTab 'CurrentPaneDomain'
   },
   {
-    key = 'd',
+    key = 'p',
     mods = default_mod,
     action = act.SpawnWindow
   },
