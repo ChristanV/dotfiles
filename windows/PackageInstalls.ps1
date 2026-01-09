@@ -15,8 +15,10 @@ $packages = @(
     "Microsoft.PowerToys",
     "Microsoft.PCManager.Beta",
     "DevToys-app.DevToys",
-    "glzr-io.glazewm"
-    "Microsoft.PowerBI"
+    "glzr-io.glazewm",
+    "Microsoft.PowerBI",
+    "7zip.7zip",
+    "GnuPG.Gpg4win"
 )
 
 foreach ($pkg in $packages) {
