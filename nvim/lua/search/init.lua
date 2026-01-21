@@ -1,6 +1,7 @@
 -- https://github.com/nvim-telescope/telescope.nvim
 require 'telescope'.setup({
   defaults = {
+    file_ignore_patterns = { "%.venv/.*", "%.vscode/.*", "node_modules/.*", "build/.*", "dist/.*" },
     vimgrep_arguments = {
       "rg",
       "--follow",        -- Follow symbolic links
