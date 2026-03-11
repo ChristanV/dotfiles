@@ -3,6 +3,8 @@ require 'telescope'.setup({
   defaults = {
     file_ignore_patterns = {
       "%.git/.*",
+      "%.terraform/.*",
+      "%.terragrunt/.*",
       "%.trunk/.*",
       "%.venv/.*",
       "%.vscode/.*",
@@ -23,6 +25,8 @@ require 'telescope'.setup({
       "--smart-case",    -- Smart case search
 
       "--glob=!**/.git/*",
+      "--glob=!**/.terraform/*",
+      "--glob=!**/.terragrunt/*",
       "--glob=!**/.idea/*",
       "--glob=!**/.vscode/*",
       "--glob=!**/build/*",
