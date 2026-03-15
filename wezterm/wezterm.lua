@@ -67,17 +67,17 @@ config.keys = {
     action = act.SpawnWindow
   },
   {
-    key = ',',
+    key = 'Tab',
     mods = default_mod,
     action = act.ActivatePaneDirection 'Next'
   },
   {
-    key = 'Tab',
+    key = ',',
     mods = default_mod,
     action = act.ActivateTabRelative(1)
   },
   {
-    key = 'Tab',
+    key = ',',
     mods = default_shift_mod,
     action = act.ActivateTabRelative(-1)
   },
