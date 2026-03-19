@@ -41,3 +41,4 @@ luac.out
 
 .ssh/
 nvim/plugin/packer_compiled.lua
+nvim/schemas/

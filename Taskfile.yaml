@@ -1,0 +1,15 @@
+version: "3"
+
+vars:
+  SCHEMA_DIR: "{{.ROOT_DIR}}/nvim/schemas"
+
+tasks:
+  schemas:download:
+    desc: Download YAML/JSON schemas for nvim linters
+    cmds:
+      - mkdir -p {{.SCHEMA_DIR}}
+      - curl -sL https://taskfile.dev/schema.json -o {{.SCHEMA_DIR}}/taskfile.json
+      - curl -sL https://json.schemastore.org/github-workflow.json -o {{.SCHEMA_DIR}}/github-workflow.json
+    status:
+      - test -f {{.SCHEMA_DIR}}/taskfile.json
+      - test -f {{.SCHEMA_DIR}}/github-workflow.json

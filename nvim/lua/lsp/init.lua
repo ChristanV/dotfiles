@@ -5,6 +5,8 @@ local lsp_flags = {
   debounce_text_changes = 150,
 }
 
+vim.lsp.log.set_level("error")
+
 vim.diagnostic.config({
   virtual_text = {
     --severity = vim.diagnostic.severity.WARN, -- only show warnings
@@ -146,9 +148,10 @@ vim.lsp.config('yamlls', {
   settings = {
     yaml = {
       schemas = {
-        ["https://json.schemastore.org/github-workflow.json"] = "/.github/workflows/*",
         ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] =
         "/*.k8s.yaml",
+        ["file://" .. vim.fn.expand("~/.config/nvim/schemas/taskfile.json")] = { "Taskfile.yml", "Taskfile.yaml" },
+        ["file://" .. vim.fn.expand("~/.config/nvim/schemas/github-workflow.json")] = "/.github/workflows/*",
       },
     },
   },
