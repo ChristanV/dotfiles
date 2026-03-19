@@ -10,6 +10,16 @@ tasks:
       - mkdir -p {{.SCHEMA_DIR}}
       - curl -sL https://taskfile.dev/schema.json -o {{.SCHEMA_DIR}}/taskfile.json
       - curl -sL https://json.schemastore.org/github-workflow.json -o {{.SCHEMA_DIR}}/github-workflow.json
+      - curl -sL https://raw.githubusercontent.com/yannh/kubernetes-json-schema/master/v1.30.0-standalone-strict/all.json -o {{.SCHEMA_DIR}}/kubernetes.json
+      - curl -sL https://json.schemastore.org/kustomization.json -o {{.SCHEMA_DIR}}/kustomization.json
+      - curl -sL https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/application_v1alpha1.json -o {{.SCHEMA_DIR}}/argocd-application.json
+      - curl -sL https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/applicationset_v1alpha1.json -o {{.SCHEMA_DIR}}/argocd-applicationset.json
+      - curl -sL https://raw.githubusercontent.com/datreeio/CRDs-catalog/main/argoproj.io/appproject_v1alpha1.json -o {{.SCHEMA_DIR}}/argocd-appproject.json
     status:
       - test -f {{.SCHEMA_DIR}}/taskfile.json
       - test -f {{.SCHEMA_DIR}}/github-workflow.json
+      - test -f {{.SCHEMA_DIR}}/kubernetes.json
+      - test -f {{.SCHEMA_DIR}}/kustomization.json
+      - test -f {{.SCHEMA_DIR}}/argocd-application.json
+      - test -f {{.SCHEMA_DIR}}/argocd-applicationset.json
+      - test -f {{.SCHEMA_DIR}}/argocd-appproject

@@ -4,6 +4,7 @@ local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
 local lsp_flags = {
   debounce_text_changes = 150,
 }
+local schema_dir = "file://" .. vim.fn.expand("~/.config/nvim/schemas/")
 
 vim.lsp.log.set_level("error")
 
@@ -147,11 +148,52 @@ vim.lsp.config('yamlls', {
   capabilities = capabilities,
   settings = {
     yaml = {
+      schemaStore = {
+        enable = false,
+        url = "",
+      },
+      format = {
+        enable = true,
+      },
       schemas = {
-        ["https://raw.githubusercontent.com/instrumenta/kubernetes-json-schema/master/v1.18.0-standalone-strict/all.json"] =
-        "/*.k8s.yaml",
-        ["file://" .. vim.fn.expand("~/.config/nvim/schemas/taskfile.json")] = { "Taskfile.yml", "Taskfile.yaml" },
-        ["file://" .. vim.fn.expand("~/.config/nvim/schemas/github-workflow.json")] = "/.github/workflows/*",
+        [schema_dir .. "taskfile.json"] = { "Taskfile.yml", "Taskfile.yaml" },
+        [schema_dir .. "github-workflow.json"] = "/.github/workflows/*",
+        ["https://json.schemastore.org/kustomization.json"] = {
+          "kustomization.yaml",
+          "kustomization.yml",
+        },
+        [schema_dir .. "argocd-application.json"] = {
+          "app.yaml",
+          "application.yaml",
+          "app.yml",
+          "application.yml",
+        },
+        [schema_dir .. "argocd-applicationset.json"] = {
+          "appset.yaml",
+          "applicationset.yaml",
+          "appset.yml",
+          "applicationset.yml",
+        },
+        [schema_dir .. "argocd-appproject.json"] = {
+          "appproject.yaml",
+          "project.yaml",
+          "appproject.yml",
+          "project.yml",
+        },
+        ["kubernetes"] = {
+          "namespace.yaml",
+          "namespace.yml",
+          "deployment.yaml",
+          "deployment.yml",
+          "service.yaml",
+          "service.yml",
+          "secret.yaml",
+          "secret.yaml",
+          "configmap.yml",
+          "configmap.yml",
+          "ingress.yml",
+          "ingress.yml",
+        },
       },
     },
   },
