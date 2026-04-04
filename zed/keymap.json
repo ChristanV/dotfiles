@@ -1,0 +1,75 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "bindings": {
+      "ctrl-h": "workspace::ActivatePaneLeft",
+      "ctrl-l": "workspace::ActivatePaneRight",
+      "ctrl-j": "workspace::ActivatePaneDown",
+      "ctrl-k": "workspace::ActivatePaneUp",
+      "ctrl-shift-t": "workspace::NewTerminal",
+      "ctrl-t": "terminal_panel::ToggleFocus",
+      "ctrl-a": "agent::ToggleFocus",
+      "ctrl-z": "workspace::ToggleZoom",
+      "ctrl-g": "git_panel::ToggleFocus",
+      "ctrl-r": "project_panel::ToggleFocus",
+      "ctrl-e": "outline_panel::ToggleFocus",
+      "ctrl-shift-g": "file_finder::Toggle",
+    },
+  },
+  {
+    "context": "Workspace",
+    "bindings": {
+      "shift-t": "workspace::ToggleLeftDock",
+      "shift-q": "workspace::ToggleRightDock",
+    },
+  },
+  {
+    "context": "Editor && vim_mode == insert",
+    "bindings": {},
+  },
+  {
+    "context": "vim_mode == normal",
+    "bindings": {
+      "s": "workspace::Save",
+      "q": "pane::CloseActiveItem",
+      "ctrl-n": "pane::SplitVertical",
+      "ctrl-m": "pane::SplitHorizontal",
+    },
+  },
+  {
+    "context": "Pane",
+    "bindings": {
+      "ctrl-1": ["pane::ActivateItem", 0],
+      "ctrl-2": ["pane::ActivateItem", 1],
+      "ctrl-3": ["pane::ActivateItem", 2],
+      "ctrl-4": ["pane::ActivateItem", 3],
+      "ctrl-5": ["pane::ActivateItem", 4],
+      "ctrl-6": ["pane::ActivateItem", 5],
+      "ctrl-7": ["pane::ActivateItem", 6],
+      "ctrl-8": ["pane::ActivateItem", 7],
+      "ctrl-9": ["pane::ActivateItem", 8],
+    },
+  },
+  {
+    "context": "Editor",
+    "bindings": {
+      "ctrl-f": "buffer_search::Deploy",
+      "ctrl-up": "editor::GoToDefinition",
+      "ctrl-down": "pane::GoBack",
+    },
+  },
+  {
+    "context": "Terminal",
+    "bindings": {
+      "ctrl-w": "pane::CloseActiveItem",
+      "ctrl-n": "pane::SplitVertical",
+      "ctrl-m": "pane::SplitHorizontal",
+    },
+  },
+]
