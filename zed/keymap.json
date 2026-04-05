@@ -24,10 +24,7 @@
   },
   {
     "context": "Workspace",
-    "bindings": {
-      "shift-t": "workspace::ToggleLeftDock",
-      "shift-q": "workspace::ToggleRightDock",
-    },
+    "bindings": {},
   },
   {
     "context": "Editor && vim_mode == insert",
@@ -40,6 +37,8 @@
       "q": "pane::CloseActiveItem",
       "ctrl-n": "pane::SplitVertical",
       "ctrl-m": "pane::SplitHorizontal",
+      "shift-t": "workspace::ToggleLeftDock",
+      "shift-q": "workspace::ToggleRightDock",
     },
   },
   {
