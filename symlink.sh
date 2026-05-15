@@ -5,6 +5,7 @@ dotfiles=(
 	"starship-config"
 	"hypr"
 	"wezterm"
+	"ghostty"
 	"waybar"
 	"xdg-desktop-portal"
 	"rofi"
@@ -13,10 +14,13 @@ dotfiles=(
 
 for dot in "${dotfiles[@]}"; do
 	echo "Setup symlink for $dot"
-	if [ ! -L ~/.config/"$dot" ]; then
-		ln -sfn ~/dotfiles/"$dot" ~/.config/"$dot"
-		echo "Linked $dot"
-	else
+	target=~/.config/"$dot"
+	if [ -L "$target" ]; then
 		echo "$dot already linked"
+	elif [ -e "$target" ]; then
+		echo "WARNING: $target exists and is not a symlink — skipping. Move or remove it, then re-run." >&2
+	else
+		ln -sfn ~/dotfiles/"$dot" "$target"
+		echo "Linked $dot"
 	fi
 done

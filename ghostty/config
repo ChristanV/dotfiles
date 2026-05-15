@@ -1,0 +1,57 @@
+# ========================================
+# Appearance
+# ========================================
+font-size = 16
+font-family = Hack Nerd Font
+
+# https://ghostty.org/docs/features/theme
+theme = Nord
+
+background-opacity = 0.9
+
+window-padding-x = 0
+window-padding-y = 0
+
+window-padding-balance = true
+gtk-tabs-location = top
+window-theme = ghostty
+
+# ========================================
+# Keybindings
+# ========================================
+# Splits
+keybind = ctrl+n=new_split:right
+keybind = ctrl+m=new_split:down
+
+# Tabs & windows
+keybind = ctrl+t=new_tab
+keybind = ctrl+p=new_window
+
+# Navigation
+keybind = ctrl+tab=goto_split:next
+keybind = ctrl+comma=next_tab
+keybind = ctrl+shift+comma=previous_tab
+
+# Disable defaults for reuse in neovim
+keybind = ctrl+i=unbind
+
+# Close / quit
+keybind = ctrl+w=close_surface
+keybind = ctrl+q=quit
+
+# Pane resizing
+keybind = ctrl+shift+h=resize_split:left,5
+keybind = ctrl+shift+j=resize_split:down,5
+keybind = ctrl+shift+k=resize_split:up,5
+keybind = ctrl+shift+l=resize_split:right,5
+
+# Jump to tab by number
+keybind = ctrl+one=goto_tab:1
+keybind = ctrl+two=goto_tab:2
+keybind = ctrl+three=goto_tab:3
+keybind = ctrl+four=goto_tab:4
+keybind = ctrl+five=goto_tab:5
+keybind = ctrl+six=goto_tab:6
+keybind = ctrl+seven=goto_tab:7
+keybind = ctrl+eight=goto_tab:8
+keybind = ctrl+nine=goto_tab:9
