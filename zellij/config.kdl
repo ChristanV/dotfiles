@@ -1,0 +1,87 @@
+default_shell "zsh"
+
+default_layout "default"
+
+theme "nord-blue"
+
+themes {
+    nord-blue {
+        fg "#d8dee9"
+        bg "#2e3440"
+        black "#3b4252"
+        red "#bf616a"
+        green "#769ff0"
+        yellow "#ebcb8b"
+        blue "#81a1c1"
+        magenta "#b48ead"
+        cyan "#88c0d0"
+        white "#e5e9f0"
+        orange "#d08770"
+    }
+}
+
+simplified_ui false
+
+pane_frames false
+
+copy_command "wl-copy"
+copy_on_select true
+
+mouse_mode true
+mouse_hover_effect true
+focus_follows_mouse false
+scroll_buffer_size 10000
+
+show_startup_tips false
+show_release_notes false
+
+keybinds {
+    shared_except "locked" {
+        // Splits (panes)
+        bind "Ctrl n" { NewPane "Right"; }
+        bind "Ctrl m" { NewPane "Down"; }
+
+        // Tabs
+        bind "Ctrl t" { NewTab; }
+
+        // Navigation
+        bind "Ctrl o" { SwitchFocus; }
+        bind "Alt l" { GoToNextTab; }
+        bind "Alt h" { GoToPreviousTab; }
+
+        // Pane cycling (works in floating mode too)
+        bind "Alt Left" { MoveFocus "Left"; }
+        bind "Alt Right" { MoveFocus "Right"; }
+        bind "Alt Up" { MoveFocus "Up"; }
+        bind "Alt Down" { MoveFocus "Down"; }
+
+        // Close / quit
+        bind "Ctrl w" { CloseFocus; }
+        bind "Ctrl q" { Quit; }
+
+        // Pane resizing
+        bind "Ctrl h" { Resize "Left"; }
+        bind "Ctrl j" { Resize "Down"; }
+        bind "Ctrl k" { Resize "Up"; }
+        bind "Ctrl l" { Resize "Right"; }
+
+        // Jump to tab by number
+        bind "Ctrl 1" { GoToTab 1; }
+        bind "Ctrl 2" { GoToTab 2; }
+        bind "Ctrl 3" { GoToTab 3; }
+        bind "Ctrl 4" { GoToTab 4; }
+        bind "Ctrl 5" { GoToTab 5; }
+        bind "Ctrl 6" { GoToTab 6; }
+        bind "Ctrl 7" { GoToTab 7; }
+        bind "Ctrl 8" { GoToTab 8; }
+        bind "Ctrl 9" { GoToTab 9; }
+    }
+}
+
+ui {
+    pane_frames {
+        rounded_corners true
+        hide_session_name true
+    }
+}
+

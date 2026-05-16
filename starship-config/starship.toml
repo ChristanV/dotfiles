@@ -16,15 +16,25 @@ $python\
 $terraform\
 $helm\
 [](fg:#212736 bg:#1d2230)\
-$kubernetes\
-$azure\
+[ ](fg:#1d2230)\
+$line_break\
+[](fg:#1d2230)\
 $aws\
+[ ](fg:#1d2230)\
+$line_break\
+[](fg:#1d2230)\
+$kubernetes\
+[ ](fg:#1d2230)\
+$line_break\
+[](fg:#1d2230)\
+$azure\
 $container\
 [ ](fg:#1d2230)\
+$line_break\
 $nix_shell\
-$cmd_duration\
-\n$character"""
+$character"""
 
+#$cmd_duration\
 [character]
 success_symbol = '[❯](#769ff0)'
 error_symbol = '[❯](#769ff0)'
@@ -64,7 +74,7 @@ format = '[[ $symbol$branch](fg:#769ff0 bg:#394260)]($style)'
 
 [git_status]
 style = "bg:#394260"
-format = '[[$ahead_behind($all_status) ](fg:#769ff0 bg:#394260)]($style)'
+format = '[[$ahead_behind($all_status)](fg:#769ff0 bg:#394260)]($style)'
 modified = ' 󰷈'
 conflicted = ' 󰈸'
 staged = ' '
@@ -79,7 +89,7 @@ deleted = ' '
 [cmd_duration]
 min_time = 1_000
 #style = "bg:#1d2230"
-format = '$duration'
+format = ' $duration'
 
 # Languages
 [nodejs]
@@ -115,7 +125,7 @@ format = '[[ $symbol ($version) ](fg:#769ff0 bg:#212736)]($style)'
 [python]
 symbol = ''
 style = "bg:#212736"
-format = '[[ $symbol ($version $virtualenv) ](fg:#769ff0 bg:#212736)]($style)'
+format = '[[ $symbol ($version $virtualenv)](fg:#769ff0 bg:#212736)]($style)'
 
 [helm]
 symbol = ''

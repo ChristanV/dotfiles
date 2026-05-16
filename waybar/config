@@ -185,6 +185,7 @@
     "window-rewrite-default": "󰣆 ",
     "window-rewrite": {
       "class<.*wezterm.*>": " ",
+      "class<.*ghostty.*>": " ",
       "class<.*password.*>": "󰯅 ",
       "class<firefox>": " ",
       "class<google-chrome>": " ",
