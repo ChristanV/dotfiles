@@ -36,16 +36,18 @@ show_startup_tips false
 show_release_notes false
 
 keybinds {
+    unbind "Ctrl r"
+
     shared_except "locked" {
         // Splits (panes)
-        bind "Ctrl n" { NewPane "Right"; }
-        bind "Ctrl m" { NewPane "Down"; }
+        bind "Alt n" { NewPane "Right"; }
+        bind "Alt m" { NewPane "Down"; }
 
         // Tabs
-        bind "Ctrl t" { NewTab; }
+        bind "Alt r" { NewTab; }
 
         // Navigation
-        bind "Ctrl o" { SwitchFocus; }
+        bind "Alt o" { SwitchFocus; }
         bind "Alt l" { GoToNextTab; }
         bind "Alt h" { GoToPreviousTab; }
 
@@ -56,25 +58,31 @@ keybinds {
         bind "Alt Down" { MoveFocus "Down"; }
 
         // Close / quit
-        bind "Ctrl w" { CloseFocus; }
-        bind "Ctrl q" { Quit; }
+        bind "Alt w" { CloseFocus; }
+        bind "Alt q" { Quit; }
 
         // Pane resizing
-        bind "Ctrl h" { Resize "Left"; }
-        bind "Ctrl j" { Resize "Down"; }
-        bind "Ctrl k" { Resize "Up"; }
-        bind "Ctrl l" { Resize "Right"; }
+        bind "Alt h" { Resize "Left"; }
+        bind "Alt j" { Resize "Down"; }
+        bind "Alt k" { Resize "Up"; }
+        bind "Alt l" { Resize "Right"; }
+
+        // Toggle fullscreen on focused pane
+        bind "Alt t" { ToggleFocusFullscreen; }
+
+        // Toggle floating panes
+        bind "Alt f" { ToggleFloatingPanes; }
 
         // Jump to tab by number
-        bind "Ctrl 1" { GoToTab 1; }
-        bind "Ctrl 2" { GoToTab 2; }
-        bind "Ctrl 3" { GoToTab 3; }
-        bind "Ctrl 4" { GoToTab 4; }
-        bind "Ctrl 5" { GoToTab 5; }
-        bind "Ctrl 6" { GoToTab 6; }
-        bind "Ctrl 7" { GoToTab 7; }
-        bind "Ctrl 8" { GoToTab 8; }
-        bind "Ctrl 9" { GoToTab 9; }
+        bind "Alt 1" { GoToTab 1; }
+        bind "Alt 2" { GoToTab 2; }
+        bind "Alt 3" { GoToTab 3; }
+        bind "Alt 4" { GoToTab 4; }
+        bind "Alt 5" { GoToTab 5; }
+        bind "Alt 6" { GoToTab 6; }
+        bind "Alt 7" { GoToTab 7; }
+        bind "Alt 8" { GoToTab 8; }
+        bind "Alt 9" { GoToTab 9; }
     }
 }
 
