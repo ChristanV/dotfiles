@@ -20,14 +20,11 @@ $helm\
 $line_break\
 [](fg:#1d2230)\
 $aws\
+$azure\
 [ ](fg:#1d2230)\
 $line_break\
 [](fg:#1d2230)\
 $kubernetes\
-[ ](fg:#1d2230)\
-$line_break\
-[](fg:#1d2230)\
-$azure\
 $container\
 [ ](fg:#1d2230)\
 $line_break\
