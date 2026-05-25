@@ -20,14 +20,11 @@ $helm\
 $line_break\
 [](fg:#1d2230)\
 $aws\
+$azure\
 [ ](fg:#1d2230)\
 $line_break\
 [](fg:#1d2230)\
 $kubernetes\
-[ ](fg:#1d2230)\
-$line_break\
-[](fg:#1d2230)\
-$azure\
 $container\
 [ ](fg:#1d2230)\
 $line_break\
@@ -74,7 +71,7 @@ format = '[[ $symbol$branch](fg:#769ff0 bg:#394260)]($style)'
 
 [git_status]
 style = "bg:#394260"
-format = '[[$ahead_behind($all_status)](fg:#769ff0 bg:#394260)]($style)'
+format = '[[$ahead_behind($all_status) ](fg:#769ff0 bg:#394260)]($style)'
 modified = ' 󰷈'
 conflicted = ' 󰈸'
 staged = ' '
