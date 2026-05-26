@@ -24,7 +24,9 @@ simplified_ui false
 
 pane_frames false
 
-copy_command "win32yank.exe -i --crlf"
+copy_command "wl-copy"
+// For Windows
+// copy_command "win32yank.exe -i --crlf"
 copy_on_select true
 
 mouse_mode true
@@ -38,6 +40,10 @@ show_release_notes false
 keybinds {
     unbind "Ctrl r"
     unbind "Ctrl s"
+
+    shared {
+        unbind "Ctrl g"
+    }
 
     shared_except "locked" {
         // Splits (panes)
