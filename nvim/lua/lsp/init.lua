@@ -56,11 +56,13 @@ vim.lsp.config('dockerls', {
 })
 vim.lsp.enable('dockerls')
 
---vim.lsp.config('jdtls', {
---  capabilities = capabilities,
---  cmd = { 'jdtls' },
---})
---vim.lsp.enable('jdtls')
+vim.lsp.config('jdtls', {
+  capabilities = capabilities,
+  cmd = { 'jdtls' },
+  filetypes = { 'java' },
+  root_markers = { 'pom.xml', 'build.gradle', 'build.gradle.kts', '.git', 'mvnw', 'gradlew' },
+})
+vim.lsp.enable('jdtls')
 
 vim.lsp.config('gopls', {
   capabilities = capabilities,
