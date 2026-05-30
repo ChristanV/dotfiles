@@ -222,6 +222,13 @@ end
 -- Waybar restart
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("pkill waybar && waybar"))
 
+-- Screen recording (wf-recorder + slurp). Toggle: region on first press, stop on second.
+hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(
+  [[sh -c 'mkdir -p "$HOME/Videos"; if pgrep -x wf-recorder >/dev/null; then pkill -INT -x wf-recorder; ]] ..
+  [[notify-send "Recording saved"; else geom=$(slurp) || exit 0; ]] ..
+  [[wf-recorder -g "$geom" -f "$HOME/Videos/rec-$(date +%Y%m%d-%H%M%S).mp4" & ]] ..
+  [[notify-send "Recording started"; fi']]))
+
 -- swww / awww wallpaper reload
 hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("awww img " .. wallpaper))
 
