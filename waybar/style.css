@@ -76,3 +76,13 @@ window#waybar {
 #custom-gpu {
   color: #8df542;
 }
+
+tooltip {
+  background: #1a1a1a;
+  border: 2px solid #268bd2;
+  border-radius: 12px;
+}
+tooltip label {
+  color: #fdf6e3;
+  padding: 8px;
+}
