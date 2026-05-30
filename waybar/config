@@ -6,81 +6,44 @@
 
 	"modules-left": [
 		"custom/nixos",
-		"custom/right-arrow-dark",
-		"custom/right-arrow-light",
-    "systemd-failed-units",
-		"custom/right-arrow-dark",
-		"custom/right-arrow-light",
-    "hyprland/workspaces",
-		"custom/right-arrow-dark",
-		"custom/right-arrow-light",
-		"tray",
-		"custom/right-arrow-dark",
-		"custom/right-arrow-light",
-    "gamemode",
-		"custom/right-arrow-dark",
+		"systemd-failed-units",
+		"hyprland/workspaces",
+		"tray"
 	],
 	"modules-center": [
-		"custom/left-arrow-dark",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
 		"clock#1",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
 		"clock#2",
-		"custom/right-arrow-dark",
-		"custom/right-arrow-light",
-		"clock#3",
-		"custom/right-arrow-dark",
-		"custom/right-arrow-light",
-		"custom/right-arrow-dark"
+		"clock#3"
 	],
 	"modules-right": [
-		"custom/left-arrow-dark",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
 		"pulseaudio",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
 		"memory",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
 		"cpu",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-    "custom/gpu",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
+		"custom/gpu",
 		"disk",
 		"disk#1",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-    "temperature",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
+		"temperature",
 		"network",
-		"custom/left-arrow-light",
-		"custom/left-arrow-dark",
-    "custom/power",
+		"custom/power"
 	],
 	"custom/nixos": {
 		"format": " ",
 		"tooltip": false
 	},
 	"custom/left-arrow-dark": {
-		"format": "",
+		"format": "",
 		"tooltip": false
 	},
 	"custom/left-arrow-light": {
-		"format": "",
+		"format": "",
 		"tooltip": false
 	},
 	"custom/right-arrow-dark": {
-		"format": "",
+		"format": "",
 		"tooltip": false
 	},
 	"custom/right-arrow-light": {
-		"format": "",
+		"format": "",
 		"tooltip": false
 	},
 
