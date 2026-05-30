@@ -5,7 +5,8 @@
 --- VARIABLES ----
 ------------------
 
-local wallpaper       = "/home/christan/Pictures/Wallpapers/neon.jpg"
+local wallpaper       = "~/.config/hypr/wallpapers/dark-galaxy.3840x2160.mp4"
+local mpvpaperOpts    = "no-audio loop-playlist hwdec=auto panscan=1.0"
 local monitor1        = "DP-1"
 local monitor2        = "DP-2"
 
@@ -45,7 +46,7 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("waybar")
   hl.exec_cmd("dunst")
   hl.exec_cmd("hyprpolkitagent")
-  hl.exec_cmd("awww-daemon & until awww query > /dev/null 2>&1; do sleep 0.1; done && awww img " .. wallpaper)
+  hl.exec_cmd("mpvpaper -o '" .. mpvpaperOpts .. "' ALL " .. wallpaper)
   hl.exec_cmd([[gsettings set org.gnome.desktop.interface gtk-theme "Adwaita-dark"]])
   hl.exec_cmd([[gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"]])
   hl.exec_cmd("wl-clip-persist --clipboard regular")
@@ -229,8 +230,9 @@ hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(
   [[wf-recorder -g "$geom" -f "$HOME/Videos/rec-$(date +%Y%m%d-%H%M%S).mp4" & ]] ..
   [[notify-send "Recording started"; fi']]))
 
--- swww / awww wallpaper reload
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd("awww img " .. wallpaper))
+-- mpvpaper wallpaper reload
+hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(
+  "sh -c 'pkill mpvpaper; mpvpaper -o \"" .. mpvpaperOpts .. "\" ALL " .. wallpaper .. "'"))
 
 -- Scratchpad (special workspace)
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
