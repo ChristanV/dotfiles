@@ -40,6 +40,7 @@ window#waybar {
 #workspaces button {
   padding: 0 2px;
   color: #fdf6e3;
+  -gtk-icon-effect: none;
 }
 #workspaces button.focused {
   color: #268bd2;
@@ -47,8 +48,9 @@ window#waybar {
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  background: transparent;
+  background: rgba(38, 139, 210, 0.25);
   border: none;
+  border-radius: 12px;
   padding: 0 3px;
 }
 #workspaces button.active {

@@ -212,8 +212,7 @@
     "all-outputs": true,
     "sort-by": "id",
     "on-click": "activate",
-    "on-scroll-up": "hyprctl dispatch workspace e+1",
-    "on-scroll-down": "hyprctl dispatch workspace e-1"
+    "on-click-left": "hyprctl dispatch 'hl.dsp.focus({ workspace = ${id} })'"
   },
   "hyprland/window": {
     "max-length": 100,
