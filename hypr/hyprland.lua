@@ -223,6 +223,10 @@ end
 -- Waybar restart
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("pkill waybar && waybar"))
 
+-- Gaming mode: fullscreen focused window and disable the secondary monitor so
+-- the cursor is physically confined to the primary. See scripts/gaming-mode.sh.
+hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("~/.config/hypr/scripts/gaming-mode.sh " .. monitor2))
+
 -- Screen recording (wf-recorder + slurp). Toggle: region on first press, stop on second.
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(
   [[sh -c 'mkdir -p "$HOME/Videos"; if pgrep -x wf-recorder >/dev/null; then pkill -INT -x wf-recorder; ]] ..
