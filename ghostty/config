@@ -1,13 +1,13 @@
 # ========================================
 # Appearance
 # ========================================
-font-size = 16
+font-size = 14
 font-family = Hack Nerd Font
 
 # https://ghostty.org/docs/features/theme
 theme = Nord
 
-background-opacity = 0.9
+background-opacity = 0.2
 
 window-padding-x = 0
 window-padding-y = 0
@@ -41,6 +41,26 @@ keybind = ctrl+shift+comma=previous_tab
 # Disable defaults for reuse in neovim
 keybind = ctrl+i=unbind
 keybind = ctrl+p=unbind
+keybind = alt+one=unbind
+keybind = alt+two=unbind
+keybind = alt+three=unbind
+keybind = alt+four=unbind
+keybind = alt+five=unbind
+keybind = alt+six=unbind
+keybind = alt+seven=unbind
+keybind = alt+eight=unbind
+keybind = alt+nine=unbind
+keybind = alt+zero=unbind
+keybind = alt+digit_1=unbind
+keybind = alt+digit_2=unbind
+keybind = alt+digit_3=unbind
+keybind = alt+digit_4=unbind
+keybind = alt+digit_5=unbind
+keybind = alt+digit_6=unbind
+keybind = alt+digit_7=unbind
+keybind = alt+digit_8=unbind
+keybind = alt+digit_9=unbind
+keybind = alt+digit_0=unbind
 
 # Close / quit — handled by Zellij
 keybind = ctrl+w=close_surface

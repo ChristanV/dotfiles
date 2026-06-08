@@ -7,6 +7,7 @@ dotfiles=(
 	"wezterm"
 	"ghostty"
 	"waybar"
+	"dunst"
 	"xdg-desktop-portal"
 	"rofi"
   "zed"

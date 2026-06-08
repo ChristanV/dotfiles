@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
   use 'nvim-tree/nvim-web-devicons'
 
   use {
-    'nvim-telescope/telescope.nvim', tag = '0.1.6',
+    'nvim-telescope/telescope.nvim',
     requires = { { 'nvim-lua/plenary.nvim' } }
   }
 
@@ -42,5 +42,5 @@ return require('packer').startup(function(use)
   }
 
   -- AI Plugins
-  use { 'github/copilot.vim', tag = 'v1.53.0' }
+  use { 'github/copilot.vim' }
 end)

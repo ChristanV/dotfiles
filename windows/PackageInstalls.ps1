@@ -11,7 +11,6 @@ $packages = @(
     "Neovim.Neovim",
     "AgileBits.1Password",
     "Notion.Notion",
-    "wez.wezterm",
     "Microsoft.PowerToys",
     "Microsoft.PCManager.Beta",
     "DevToys-app.DevToys",
