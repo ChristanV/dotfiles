@@ -207,11 +207,21 @@ vim.lsp.config('yamlls', {
 vim.lsp.enable('yamlls')
 
 vim.lsp.config('terraformls', {
-  filetypes = { 'terraform', 'terraform-vars' },
+  filetypes = { 'terraform' },
   root_dir = vim.fs.root(0, { '.terraform', '.git' }),
 })
 
 vim.lsp.enable('terraformls')
+
+vim.api.nvim_create_autocmd('LspAttach', {
+  callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    if client and client.name == 'terraformls'
+        and vim.api.nvim_buf_get_name(args.buf):match('%.tfvars$') then
+      vim.lsp.buf_detach_client(args.buf, args.data.client_id)
+    end
+  end,
+})
 
 vim.lsp.config('tflint', {
   capabilities = capabilities
