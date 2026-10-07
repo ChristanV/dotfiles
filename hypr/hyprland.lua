@@ -9,6 +9,7 @@ local wallpaper       = "~/.config/hypr/wallpapers/dark-galaxy.3840x2160.mp4"
 local mpvpaperOpts    = "no-audio loop-playlist hwdec=auto panscan=1.0"
 local monitor1        = "DP-1"
 local monitor2        = "DP-2"
+local monitor3        = "HDMI-A-1"
 
 local terminal        = "ghostty"
 local browser         = "google-chrome-stable"
@@ -28,6 +29,27 @@ hl.monitor({
   mode     = "preferred",
   position = "auto",
   scale    = "auto",
+})
+
+hl.monitor({
+  output   = monitor1,
+  mode     = "preferred",
+  position = "0x0",
+  scale    = 1,
+})
+
+hl.monitor({
+  output   = monitor2,
+  mode     = "preferred",
+  position = "2560x0",
+  scale    = 1,
+})
+
+hl.monitor({
+  output   = monitor3,
+  mode     = "preferred",
+  position = "320x1440",
+  scale    = 1,
 })
 
 
@@ -167,10 +189,14 @@ hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "a
 -----------------------
 -- See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 hl.workspace_rule({ workspace = "1", monitor = monitor1 })
-hl.workspace_rule({ workspace = "2", monitor = monitor1 })
-hl.workspace_rule({ workspace = "3", monitor = monitor2 })
-hl.workspace_rule({ workspace = "4", monitor = monitor2 })
+hl.workspace_rule({ workspace = "2", monitor = monitor2 })
+hl.workspace_rule({ workspace = "3", monitor = monitor3 })
+hl.workspace_rule({ workspace = "4", monitor = monitor1 })
 hl.workspace_rule({ workspace = "5", monitor = monitor1 })
+hl.workspace_rule({ workspace = "6", monitor = monitor3 })
+hl.workspace_rule({ workspace = "7", monitor = monitor2 })
+hl.workspace_rule({ workspace = "8", monitor = monitor2 })
+hl.workspace_rule({ workspace = "9", monitor = monitor3 })
 
 
 ------------------

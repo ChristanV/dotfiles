@@ -22,4 +22,17 @@ tasks:
       - test -f {{.SCHEMA_DIR}}/kustomization.json
       - test -f {{.SCHEMA_DIR}}/argocd-application.json
       - test -f {{.SCHEMA_DIR}}/argocd-applicationset.json
-      - test -f {{.SCHEMA_DIR}}/argocd-appproject
+      - test -f {{.SCHEMA_DIR}}/argocd-appproject.json
+
+  hypr:reload:
+    desc: Reload Hyprland and move existing workspaces to their workspace-rule monitors
+    cmds:
+      - hyprctl reload
+      # Workspace rules only bind a workspace to a monitor when it's created,
+      # so move already-open workspaces to match the rules.
+      - |
+        hyprctl workspacerules -j \
+          | jq -r '.[] | select(.monitor) | "\(.workspaceString) \(.monitor)"' \
+          | while read -r ws mon; do
+              hyprctl dispatch "hl.dsp.workspace.move({ workspace = \"$ws\", monitor = \"$mon\" })"
+            done
