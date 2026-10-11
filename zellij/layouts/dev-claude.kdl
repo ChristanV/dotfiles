@@ -17,4 +17,9 @@ layout {
       pane command="lazygit"
   }
   tab name="ZSH" 
+  tab name="AGENTS" {
+      pane command="claude" {
+          args "agents"
+      }
+  }
 }
