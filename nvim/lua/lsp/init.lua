@@ -6,7 +6,7 @@ local lsp_flags = {
 }
 local schema_dir = "file://" .. vim.fn.expand("~/.config/nvim/schemas/")
 
-vim.lsp.log.set_level("error")
+vim.lsp.log.set_level(vim.log.levels.OFF)
 
 vim.diagnostic.config({
   virtual_text = {
@@ -227,6 +227,12 @@ vim.lsp.config('tflint', {
   capabilities = capabilities
 })
 vim.lsp.enable('tflint')
+
+vim.lsp.config('terragrunt_ls', {
+  cmd = { vim.fn.expand('~/go/bin/terragrunt-ls') },
+  capabilities = capabilities
+})
+vim.lsp.enable('terragrunt_ls')
 
 vim.cmd([[let g:terraform_fmt_on_save=1]])
 vim.cmd([[let g:terraform_align=1]])
