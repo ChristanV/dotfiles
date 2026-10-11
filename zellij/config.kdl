@@ -46,6 +46,9 @@ keybinds {
     }
 
     shared_except "locked" {
+        // Disable default tab reordering
+        unbind "Alt i"
+
         // Splits (panes)
         bind "Alt n" { NewPane "Right"; }
         bind "Alt m" { NewPane "Down"; }
@@ -66,7 +69,8 @@ keybinds {
 
         // Close / quit
         bind "Alt w" { CloseFocus; }
-        bind "Alt q" { Quit; }
+        bind "Alt q" { Detach; }
+        bind "Alt z" { Quit; }
 
         // Pane resizing
         bind "Alt h" { Resize "Left"; }
@@ -96,7 +100,7 @@ keybinds {
 ui {
     pane_frames {
         rounded_corners true
-        hide_session_name true
+        hide_session_name false
     }
 }
 

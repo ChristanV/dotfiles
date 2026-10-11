@@ -19,6 +19,11 @@ require 'nvim-tree'.setup({
     enable = false,
     dotfiles = false,
   },
+  actions = {
+    change_dir = {
+      restrict_above_cwd = true,
+    },
+  },
 })
 
 local NAVIGATION = {}
