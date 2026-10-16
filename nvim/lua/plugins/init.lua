@@ -1,46 +1,87 @@
-vim.cmd [[packadd packer.nvim]]
+local lazypath = vim.fn.stdpath('data') .. '/lazy/lazy.nvim'
+if not vim.uv.fs_stat(lazypath) then
+  local out = vim.fn.system({
+    'git', 'clone', '--filter=blob:none', '--branch=stable',
+    'https://github.com/folke/lazy.nvim.git', lazypath,
+  })
+  if vim.v.shell_error ~= 0 then
+    vim.api.nvim_echo({
+      { 'Failed to clone lazy.nvim:\n', 'ErrorMsg' },
+      { out,                            'WarningMsg' },
+    }, true, {})
+    return
+  end
+end
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
-  use 'neovim/nvim-lspconfig'
-  use 'EdenEast/nightfox.nvim'
-  use 'gbprod/nord.nvim'
-  use 'nvim-lua/plenary.nvim'
+require('lazy').setup({
+  'neovim/nvim-lspconfig',
+  { 'EdenEast/nightfox.nvim',                          priority = 1000 },
 
-  use 'nvim-tree/nvim-tree.lua'
-  use 'nvim-tree/nvim-web-devicons'
+  'nvim-tree/nvim-tree.lua',
+  'nvim-tree/nvim-web-devicons',
 
-  use {
+  {
+    'nvim-treesitter/nvim-treesitter',
+    branch = 'main',
+    lazy = false,
+    build = ':TSUpdate',
+    config = function() require('treesitter') end,
+  },
+
+  {
+    'folke/which-key.nvim',
+    event = 'VeryLazy',
+    config = function() require('whichkey') end,
+  },
+
+  {
     'nvim-telescope/telescope.nvim',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
 
-  use 'hashivim/vim-terraform'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/nvim-cmp'
-  use 'hrsh7th/vim-vsnip'
-  use 'hrsh7th/vim-vsnip-integ'
+  {
+    'mfussenegger/nvim-lint',
+    config = function() require('linting') end,
+  },
 
-  use {
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/nvim-cmp',
+  'hrsh7th/cmp-nvim-lsp-signature-help',
+  {
+    'petertriho/cmp-git',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function() require('cmp_git').setup() end,
+  },
+
+  {
     'ThePrimeagen/harpoon',
     branch = 'harpoon2',
-    requires = { { 'nvim-lua/plenary.nvim' } }
-  }
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
 
-  use {
-    'https://gitlab.com/itaranto/plantuml.nvim',
-    tag = '*',
-    config = function() require('plantuml').setup() end
-  }
+  {
+    'MeanderingProgrammer/render-markdown.nvim',
+    dependencies = { 'nvim-tree/nvim-web-devicons' },
+    ft = 'markdown',
+    config = function() require('markdown') end,
+  },
 
-  use {
+  -- setup() is called in lua/uml
+  { url = 'https://gitlab.com/itaranto/plantuml.nvim', version = '*' },
+
+  {
     'lewis6991/gitsigns.nvim',
-    requires = { 'nvim-lua/plenary.nvim' },
-  }
+    dependencies = { 'nvim-lua/plenary.nvim' },
+  },
 
   -- AI Plugins
-  use { 'github/copilot.vim' }
-end)
+  'github/copilot.vim',
+}, {
+  install = { colorscheme = { 'nightfox' } },
+  change_detection = { notify = false },
+  rocks = { enabled = false },
+})

@@ -46,18 +46,7 @@ vim.keymap.set('n', '<S-j>', ':wincmd j<CR>', { desc = 'Move to the bottom windo
 vim.keymap.set('n', '<S-w>', ':q<CR>', { desc = 'Quit window', noremap = true, silent = true })
 vim.keymap.set('n', 'q', ':q<CR>', { desc = 'Quit window', noremap = true, silent = true })
 vim.keymap.set('n', 's', ':w<CR>', { desc = "write file", noremap = true, silent = false })
-vim.keymap.set('n', '<leader>k', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = false })
---vim.keymap.sea('n', 'q', 'r', { noremap = true, silent = true }) --remap record
-
--- AI
-vim.keymap.set('n', '<leader>c', ':Gen Chat<CR>', { desc = 'Open gen Chat', noremap = true, silent = false })
-vim.keymap.set('n', '<leader>g', ':ChatGPT<CR>', { desc = 'Open Chatgpt Chat', noremap = true, silent = false })
-vim.keymap.set('n', '<leader>ss', ':SupermavenStart<CR>', { desc = 'Start Super maven', noremap = true, silent = false })
-vim.keymap.set('n', '<leader>st', ':SupermavenStop<CR>', { desc = 'Stop Super maven', noremap = true, silent = false })
-vim.keymap.set('n', '<leader>sf', ':SupermavenUseFree<CR>',
-  { desc = 'Use Supermaven Free tier', noremap = true, silent = false })
-vim.keymap.set('n', '<leader>sp', ':SupermavenUsePro<CR>',
-  { desc = 'Use supermaven pro tier', noremap = true, silent = false })
+vim.keymap.set('n', '<leader>k', '<cmd>lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = false })--vim.keymap.sea('n', 'q', 'r', { noremap = true, silent = true }) --remap record
 
 -- LSP goto's & diagnostic
 local opts = { noremap = true, silent = true }

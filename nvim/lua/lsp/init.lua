@@ -1,4 +1,3 @@
--- https://github.com/neovim/nvim-lspconfig
 local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
 
 local lsp_flags = {
@@ -213,16 +212,6 @@ vim.lsp.config('terraformls', {
 
 vim.lsp.enable('terraformls')
 
-vim.api.nvim_create_autocmd('LspAttach', {
-  callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    if client and client.name == 'terraformls'
-        and vim.api.nvim_buf_get_name(args.buf):match('%.tfvars$') then
-      vim.lsp.buf_detach_client(args.buf, args.data.client_id)
-    end
-  end,
-})
-
 vim.lsp.config('tflint', {
   capabilities = capabilities
 })
@@ -234,8 +223,24 @@ vim.lsp.config('terragrunt_ls', {
 })
 vim.lsp.enable('terragrunt_ls')
 
-vim.cmd([[let g:terraform_fmt_on_save=1]])
-vim.cmd([[let g:terraform_align=1]])
+-- terraform fmt on save; uses the CLI since tfvars has no LSP attached
+vim.api.nvim_create_autocmd("BufWritePre", {
+  pattern = { "*.tf", "*.tfvars" },
+  callback = function(args)
+    local lines = vim.api.nvim_buf_get_lines(args.buf, 0, -1, false)
+    local result = vim.system({ 'terraform', 'fmt', '-' },
+      { stdin = table.concat(lines, '\n') .. '\n' }):wait()
+    if result.code ~= 0 then
+      return
+    end
+    local formatted = vim.split(result.stdout:gsub('\n$', ''), '\n', { plain = true })
+    if not vim.deep_equal(lines, formatted) then
+      local view = vim.fn.winsaveview()
+      vim.api.nvim_buf_set_lines(args.buf, 0, -1, false, formatted)
+      vim.fn.winrestview(view)
+    end
+  end,
+})
 
 vim.lsp.config('ansiblels', {
   capabilities = capabilities,

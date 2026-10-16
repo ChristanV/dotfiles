@@ -33,6 +33,9 @@ vim.opt.splitright = true
 
 vim.opt.clipboard = "unnamedplus"
 
+-- Modelines in untrusted files can set options or trigger exploits
+vim.opt.modeline = false
+
 -- Make transparent
 --vim.cmd [[
 --  hi Normal ctermbg=none guibg=none

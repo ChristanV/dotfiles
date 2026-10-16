@@ -1,16 +1,10 @@
--- https://github.com/hrsh7th/nvim-cmp
--- https://github.com/hrsh7th/vim-vsnip
 local cmp = require 'cmp'
 
 cmp.setup({
   snippet = {
-    -- REQUIRED - you must specify a snippet engine
+    -- Expand LSP snippets with Neovim's built-in engine
     expand = function(args)
-      vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      -- require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
-      -- require('snippy').expand_snippet(args.body) -- For `snippy` users.
-      -- vim.fn["UltiSnips#Anon"](args.body) -- For `ultisnips` users.
-      -- vim.snippet.expand(args.body) -- For native neovim snippets (Neovim v0.10+)
+      vim.snippet.expand(args.body)
     end,
   },
   window = {
@@ -26,20 +20,16 @@ cmp.setup({
   }),
   sources = cmp.config.sources({
     { name = 'nvim_lsp' },
-    { name = 'vsnip' },   -- For vsnip users.
-    -- { name = 'luasnip' }, -- For luasnip users.
-    -- { name = 'ultisnips' }, -- For ultisnips users.
-    -- { name = 'snippy' }, -- For snippy users.
+    { name = 'nvim_lsp_signature_help' },
   }, {
     { name = 'buffer' },
-    { name = 'nvim_lsp_signature_help' }
   }),
 })
 
 -- Set configuration for specific filetype.
 cmp.setup.filetype('gitcommit', {
   sources = cmp.config.sources({
-    { name = 'git' }, -- You can specify the `git` source if [you were installed it](https://github.com/petertriho/cmp-git).
+    { name = 'git' },
   }, {
     { name = 'buffer' },
   })
