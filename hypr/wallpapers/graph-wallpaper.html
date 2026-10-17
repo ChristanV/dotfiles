@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Derivation Graph</title>
+<style>
+  html,body{margin:0;height:100%;background:#2E3440;overflow:hidden}
+  canvas{display:block;width:100vw;height:100vh}
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<script>
+(() => {
+  // ---- Tweak me ---------------------------------------------------------
+  const CFG = {
+    fps: 30,                 // cap: 30 is plenty for a wallpaper and halves GPU work vs 60
+    nodeDensity: 1 / 14000,  // nodes per px² (~150 nodes at 1080p)
+    linkDist: 170,           // px: max distance for an edge
+    speed: 0.15,             // node drift speed
+    pulseEvery: 900,         // ms between new build chains
+    pulseHops: 6,            // how far a build chain propagates
+    // Nord palette: https://www.nordtheme.com/docs/colors-and-palettes
+    colors: {
+      bg: '#2E3440',        // nord0  Polar Night
+      node: '136,192,208',  // nord8  Frost
+      pulse: '235,203,139', // nord13 Aurora yellow (try 208,135,112 = nord12 orange)
+      vignette: '36,41,51'  // a shade darker than nord0 for depth
+    }
+  };
+  // Override any numeric setting via URL, e.g. wallpaper.html?fps=60&linkDist=200
+  new URLSearchParams(location.search).forEach((v, k) => { if (k in CFG && !isNaN(+v)) CFG[k] = +v; });
+  // ----------------------------------------------------------------------
+
+  const c = document.getElementById('c'), x = c.getContext('2d');
+  const rand = (a, b) => a + Math.random() * (b - a);
+  const pick = arr => arr[Math.random() * arr.length | 0];
+
+  let W, H, nodes = [], pulses = [], vignette;
+
+
+  function resize() {
+    const dpr = Math.min(devicePixelRatio || 1, 2);
+    W = innerWidth; H = innerHeight;
+    c.width = W * dpr; c.height = H * dpr;
+    x.setTransform(dpr, 0, 0, dpr, 0, 0);
+    nodes = Array.from({ length: Math.round(W * H * CFG.nodeDensity) }, () => ({
+      x: rand(0, W), y: rand(0, H),
+      vx: rand(-1, 1) * CFG.speed, vy: rand(-1, 1) * CFG.speed,
+      r: rand(1.2, 2.6), glow: 0
+    }));
+    pulses = [];
+    vignette = x.createRadialGradient(W / 2, H / 2, Math.min(W, H) * 0.2, W / 2, H / 2, Math.max(W, H) * 0.75);
+    vignette.addColorStop(0, `rgba(${CFG.colors.vignette},0)`);
+    vignette.addColorStop(1, `rgba(${CFG.colors.vignette},0.85)`);
+  }
+
+  // A "build" travels along an edge, then triggers a dependent neighbour
+  function hop(from, left) {
+    if (left <= 0) return;
+    const L2 = CFG.linkDist ** 2;
+    const nb = nodes.filter(n => n !== from && (n.x - from.x) ** 2 + (n.y - from.y) ** 2 < L2);
+    if (nb.length) pulses.push({ a: from, b: pick(nb), t: 0, left: left - 1 });
+  }
+
+  let last = 0, lastPulse = 0;
+  function frame(ts) {
+    requestAnimationFrame(frame); // browsers pause rAF on hidden tabs/windows: free power saving
+    if (ts - last < 1000 / CFG.fps) return;
+    const dt = Math.min((ts - last) / 1000, 0.1), k = dt * 30;
+    last = ts;
+
+    x.fillStyle = CFG.colors.bg;
+    x.fillRect(0, 0, W, H);
+
+    // Move nodes
+    for (const n of nodes) {
+      n.x += n.vx * k; n.y += n.vy * k;
+      if (n.x < 0 || n.x > W) n.vx *= -1;
+      if (n.y < 0 || n.y > H) n.vy *= -1;
+      n.glow *= 0.94;
+    }
+
+    // Layer 1: edges (O(n²) but n≈150, so ~11k checks/frame: trivial)
+    const L2 = CFG.linkDist ** 2;
+    x.lineWidth = 1;
+    for (let i = 0; i < nodes.length; i++) {
+      const a = nodes[i];
+      for (let j = i + 1; j < nodes.length; j++) {
+        const b = nodes[j], d2 = (a.x - b.x) ** 2 + (a.y - b.y) ** 2;
+        if (d2 < L2) {
+          x.strokeStyle = `rgba(${CFG.colors.node},${(1 - d2 / L2) * 0.25})`;
+          x.beginPath(); x.moveTo(a.x, a.y); x.lineTo(b.x, b.y); x.stroke();
+        }
+      }
+    }
+
+    // Layer 2: build pulses
+    if (ts - lastPulse > CFG.pulseEvery && nodes.length) { lastPulse = ts; hop(pick(nodes), CFG.pulseHops); }
+    for (const p of pulses) {
+      p.t += dt * 1.6;
+      const t = Math.min(p.t, 1);
+      const px = p.a.x + (p.b.x - p.a.x) * t, py = p.a.y + (p.b.y - p.a.y) * t;
+      x.strokeStyle = `rgba(${CFG.colors.pulse},0.45)`;
+      x.lineWidth = 1.5;
+      x.beginPath(); x.moveTo(p.a.x, p.a.y); x.lineTo(px, py); x.stroke();
+      x.fillStyle = `rgba(${CFG.colors.pulse},0.25)`;
+      x.beginPath(); x.arc(px, py, 6, 0, Math.PI * 2); x.fill();
+      x.fillStyle = `rgb(${CFG.colors.pulse})`;
+      x.beginPath(); x.arc(px, py, 2.2, 0, Math.PI * 2); x.fill();
+      if (p.t >= 1) { p.done = true; p.b.glow = 1; hop(p.b, p.left); }
+    }
+    pulses = pulses.filter(p => !p.done);
+
+    // Layer 3: nodes ("built" nodes glow amber briefly)
+    for (const n of nodes) {
+      if (n.glow > 0.05) {
+        x.fillStyle = `rgba(${CFG.colors.pulse},${n.glow * 0.3})`;
+        x.beginPath(); x.arc(n.x, n.y, n.r + 8 * n.glow, 0, Math.PI * 2); x.fill();
+      }
+      x.fillStyle = `rgba(${CFG.colors.node},${0.55 + n.glow * 0.45})`;
+      x.beginPath(); x.arc(n.x, n.y, n.r, 0, Math.PI * 2); x.fill();
+    }
+
+    x.fillStyle = vignette;
+    x.fillRect(0, 0, W, H);
+  }
+
+  addEventListener('resize', resize);
+  resize();
+  requestAnimationFrame(frame);
+})();
+</script>
+</body>
+</html>

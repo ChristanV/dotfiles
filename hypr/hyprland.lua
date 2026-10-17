@@ -5,7 +5,9 @@
 --- VARIABLES ----
 ------------------
 
-local wallpaper       = "~/.config/hypr/wallpapers/dark-galaxy.3840x2160.mp4"
+--local wallpaper       = "~/.config/hypr/wallpapers/dark-galaxy.3840x2160.mp4"
+local wallpaper       = "~/.config/hypr/wallpapers/nord-graph-1080p.mp4"
+--local wallpaper       = "~/.config/hypr/wallpapers/nord-02-topography-3840x2160.png"
 local mpvpaperOpts    = "no-audio loop-playlist hwdec=auto panscan=1.0"
 local monitor1        = "DP-1"
 local monitor2        = "DP-2"
@@ -95,7 +97,7 @@ hl.config({
     border_size      = 2,
 
     col              = {
-      active_border   = "rgba(268bd2ee)",
+      active_border   = "rgba(81a1c1ee)",
       inactive_border = "rgba(595959aa)",
     },
 

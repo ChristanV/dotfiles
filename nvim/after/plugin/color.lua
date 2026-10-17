@@ -33,4 +33,10 @@ require('nightfox').setup({
 })
 
 
+require('nord').setup({
+  transparent = true,
+})
+
 vim.cmd("colorscheme nord")
+
+vim.api.nvim_set_hl(0, 'ColorColumn', { bg = '#313744' })
