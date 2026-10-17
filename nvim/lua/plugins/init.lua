@@ -17,6 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 require('lazy').setup({
   'neovim/nvim-lspconfig',
   { 'EdenEast/nightfox.nvim',                          priority = 1000 },
+  { 'gbprod/nord.nvim',                                priority = 1000 },
+  { 'ellisonleao/gruvbox.nvim',                        lazy = true },
+  { 'AlexvZyl/nordic.nvim',                            lazy = true },
 
   'nvim-tree/nvim-tree.lua',
   'nvim-tree/nvim-web-devicons',
@@ -81,7 +84,7 @@ require('lazy').setup({
   -- AI Plugins
   'github/copilot.vim',
 }, {
-  install = { colorscheme = { 'nightfox' } },
+  install = { colorscheme = { 'nord' } },
   change_detection = { notify = false },
   rocks = { enabled = false },
 })

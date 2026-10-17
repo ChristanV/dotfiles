@@ -3,6 +3,7 @@ default_shell "zsh"
 default_layout "default"
 
 theme "nord-blue"
+//theme "gruvbox-dark"
 
 themes {
     nord-blue {
