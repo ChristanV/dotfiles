@@ -1,0 +1,3 @@
+/* libadwaita ignores the gtk-theme setting, so load Nordic's GTK4 styles directly.
+   /run/current-system path survives rebuilds; the theme comes from nixos-config (pkgs.nordic). */
+@import url("file:///run/current-system/sw/share/themes/Nordic-bluish-accent/gtk-4.0/gtk.css");

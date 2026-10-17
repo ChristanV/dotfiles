@@ -11,7 +11,7 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-  background: #2e3440;
+  background: #3b4252;
   border: 2px solid #81a1c1;
   border-radius: 20px;
   margin: 10px 8px 0px 8px;
@@ -56,7 +56,7 @@ window#waybar {
 #workspaces button.active {
   background-color: #81a1c1;
   border: 2px solid #81a1c1;
-  color: #000000;
+  color: #2e3440;
   border-radius: 12px;
 }
 
@@ -80,7 +80,7 @@ window#waybar {
 }
 
 tooltip {
-  background: #2e3440;
+  background: #3b4252;
   border: 2px solid #81a1c1;
   border-radius: 12px;
 }

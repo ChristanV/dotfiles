@@ -81,6 +81,15 @@ require('lazy').setup({
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
 
+  -- Centered floating cmdline + message views (config in lua/cmdline)
+  {
+    'folke/noice.nvim',
+    version = '*', -- tagged releases only
+    event = 'VeryLazy',
+    dependencies = { 'MunifTanjim/nui.nvim' },
+    config = function() require('cmdline').setup() end,
+  },
+
   -- AI Plugins
   'github/copilot.vim',
 }, {

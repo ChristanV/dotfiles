@@ -6,4 +6,4 @@ configuration {
   show-icons: true;
 }
 
-@theme "fullscreen-preview.rasi"
+@theme "/home/christan/.local/share/rofi/themes/rounded-nord-dark.rasi"

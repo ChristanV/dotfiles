@@ -20,31 +20,31 @@ themes {
     }
 
     nord-override {
-        fg "#d8dee9"      
-        bg "#2e3440"      
-        black "#3b4252"   
-        red "#bf616a"     
-        green "#81a1c1"  
-        yellow "#ebcb8b"  
-        blue "#81a1c1"    
-        magenta "#b48ead" 
-        cyan "#8fbcbb"    
-        white "#e5e9f0"   
-        orange "#d08770"  
+        fg "#e5e9f0"
+        bg "#d8dee9"
+        black "#434c5e"
+        red "#bf616a"
+        green "#81a1c1"
+        yellow "#ebcb8b"
+        blue "#81a1c1"
+        magenta "#b48ead"
+        cyan "#8fbcbb"
+        white "#e5e9f0"
+        orange "#d08770"
     }
 
     gruvbox {
-        fg "#ebdbb2"     
-        bg "#282828"     
-        black "#3c3836"  
-        red "#fb4934"    
-        green "#458588"  
-        yellow "#fabd2f" 
-        blue "#83a598"   
+        fg "#ebdbb2"
+        bg "#282828"
+        black "#3c3836"
+        red "#fb4934"
+        green "#458588"
+        yellow "#fabd2f"
+        blue "#83a598"
         magenta "#d3869b"
-        cyan "#8ec07c"   
-        white "#fbf1c7"  
-        orange "#fe8019" 
+        cyan "#8ec07c"
+        white "#fbf1c7"
+        orange "#fe8019"
     }
 }
 

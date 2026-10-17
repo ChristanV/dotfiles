@@ -39,4 +39,4 @@ require('nord').setup({
 
 vim.cmd("colorscheme nord")
 
-vim.api.nvim_set_hl(0, 'ColorColumn', { bg = '#313744' })
+vim.api.nvim_set_hl(0, 'ColorColumn', { bg = '#434c5e' })

@@ -1,4 +1,3 @@
-# Switch colour scheme: 'current', 'nord-neovim', 'gruvbox' or 'nord'
 palette = 'nord'
 
 format = """
@@ -137,7 +136,7 @@ style = "bg:surface3"
 #impure_msg = '[impure shell](bold red)'
 #pure_msg = '[pure shell](bold green)'
 #unknown_msg = '[unknown shell](bold yellow)'
-format = 'via [$symbol(\($name\))](bold blue)'
+format = 'via [$symbol(\($name\))](bold accent_fg)'
 
 # Other
 [time]
@@ -169,28 +168,28 @@ format = '[[ $symbol$name ](fg:muted bg:surface3)]($style)'
 
 # Palettes
 [palettes.current]
-accent = '#769ff0'      # first segment background, prompt character
-accent_text = '#e3e5e5' # text on accent
-accent_fg = '#769ff0'   # text on the dark segments
-surface1 = '#394260'    # git segment
-surface2 = '#212736'    # language segment
-surface3 = '#1d2230'    # cloud / k8s segments
-muted = '#a0a9cb'       # text on surface3
+accent = '#769ff0'
+accent_text = '#e3e5e5'
+accent_fg = '#769ff0'
+surface1 = '#394260'
+surface2 = '#212736'
+surface3 = '#1d2230'
+muted = '#a0a9cb'
 
 [palettes.gruvbox]
-accent = '#458588'      
-accent_text = '#fbf1c7' 
-accent_fg = '#83a598'   
-surface1 = '#504945'    
-surface2 = '#3c3836'    
-surface3 = '#282828'    
-muted = '#a89984'       
+accent = '#458588'
+accent_text = '#fbf1c7'
+accent_fg = '#83a598'
+surface1 = '#504945'
+surface2 = '#3c3836'
+surface3 = '#282828'
+muted = '#a89984'
 
 [palettes.nord]
 accent = '#81a1c1'
-accent_text = '#2e3440' 
-accent_fg = '#81a1c1'   
-surface1 = '#4c566a'    
-surface2 = '#434c5e'    
-surface3 = '#3b4252'    
-muted = '#d8dee9'       
+accent_text = '#2e3440'
+accent_fg = '#81a1c1'
+surface1 = '#4c566a'
+surface2 = '#434c5e'
+surface3 = '#3b4252'
+muted = '#d8dee9'

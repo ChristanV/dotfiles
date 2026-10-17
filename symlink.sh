@@ -13,6 +13,9 @@ dotfiles=(
   "zellij"
   "lazygit"
   "zsh"
+  "gtk-4.0"
+  "qt6ct"
+  "btop"
 )
 
 for dot in "${dotfiles[@]}"; do
