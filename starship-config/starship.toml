@@ -187,7 +187,7 @@ surface3 = '#282828'
 muted = '#a89984'       
 
 [palettes.nord]
-accent = '#88c0d0'      
+accent = '#81a1c1'
 accent_text = '#2e3440' 
 accent_fg = '#81a1c1'   
 surface1 = '#4c566a'    

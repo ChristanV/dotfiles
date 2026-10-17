@@ -6,7 +6,8 @@
 ------------------
 
 --local wallpaper       = "~/.config/hypr/wallpapers/dark-galaxy.3840x2160.mp4"
-local wallpaper       = "~/.config/hypr/wallpapers/nord-graph-1080p.mp4"
+--local wallpaper       = "~/.config/hypr/wallpapers/nord-graph-1080p.mp4"
+local wallpaper       = "~/.config/hypr/wallpapers/nord-graph-2160p.mp4"
 --local wallpaper       = "~/.config/hypr/wallpapers/nord-02-topography-3840x2160.png"
 local mpvpaperOpts    = "no-audio loop-playlist hwdec=auto panscan=1.0"
 local monitor1        = "DP-1"

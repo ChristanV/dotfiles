@@ -10,9 +10,9 @@ dotfiles=(
 	"dunst"
 	"xdg-desktop-portal"
 	"rofi"
-  "zed"
   "zellij"
   "lazygit"
+  "zsh"
 )
 
 for dot in "${dotfiles[@]}"; do

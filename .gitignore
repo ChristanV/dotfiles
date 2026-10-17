@@ -41,3 +41,8 @@ luac.out
 
 .ssh/
 nvim/schemas/
+
+# zsh
+.zcompdump*
+.zsh_history
+.zsh_sessions/
