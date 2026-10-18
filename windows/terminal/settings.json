@@ -3,16 +3,16 @@
   "$schema": "https://aka.ms/terminal-profiles-schema",
   "actions": [
     {
-      "command": "duplicateTab",
-      "id": "duplicateTab"
-    },
-    {
       "command": {
         "action": "splitPane",
         "split": "right",
         "splitMode": "duplicate"
       },
       "id": "splitVertical"
+    },
+    {
+      "command": "duplicateTab",
+      "id": "duplicateTab"
     },
     {
       "command": {
@@ -35,12 +35,12 @@
   "defaultProfile": "{b1d3b834-ef7f-4bc6-9085-bcea3cd72195}",
   "keybindings": [
     {
-      "id": "cyclePane",
-      "keys": "ctrl+,"
+      "id": "Terminal.FindText",
+      "keys": "ctrl+shift+f"
     },
     {
-      "id": "Terminal.OpenNewWindow",
-      "keys": "ctrl+d"
+      "id": "cyclePane",
+      "keys": "ctrl+comma"
     },
     {
       "id": "Terminal.DuplicatePaneDown",
@@ -52,27 +52,23 @@
     },
     {
       "id": null,
-      "keys": "ctrl+shift+n"
-    },
-    {
-      "id": null,
       "keys": "ctrl+alt+4"
     },
     {
-      "id": "Terminal.FindText",
-      "keys": "ctrl+shift+f"
+      "id": null,
+      "keys": "ctrl+shift+n"
     },
     {
       "id": "Terminal.SwitchToTab1",
       "keys": "ctrl+2"
     },
     {
-      "id": "splitVertical",
-      "keys": "ctrl+n"
-    },
-    {
       "id": "Terminal.SwitchToTab0",
       "keys": "ctrl+1"
+    },
+    {
+      "id": "splitVertical",
+      "keys": "ctrl+n"
     },
     {
       "id": "splithorizontal",
@@ -81,6 +77,10 @@
     {
       "id": null,
       "keys": "ctrl+alt+2"
+    },
+    {
+      "id": "Terminal.SwitchToTab5",
+      "keys": "ctrl+6"
     },
     {
       "id": null,
@@ -101,10 +101,6 @@
     {
       "id": "Terminal.SwitchToTab4",
       "keys": "ctrl+5"
-    },
-    {
-      "id": "Terminal.SwitchToTab5",
-      "keys": "ctrl+6"
     },
     {
       "id": "Terminal.SwitchToTab6",
@@ -158,10 +154,12 @@
   ],
   "profiles": {
     "defaults": {
-      "colorScheme": "One Half Dark",
+      "colorScheme": "Nord",
       "font": {
         "face": "Hack Nerd Font, Symbols Nerd Font"
-      }
+      },
+      "opacity": 50,
+      "useAcrylic": false
     },
     "list": [
       {
@@ -191,14 +189,67 @@
         "startingDirectory": "~"
       },
       {
-        "guid": "{c397f356-5e7b-55bc-956b-8cb4b9762c26}",
-        "hidden": true,
-        "name": "NixOS",
-        "source": "Windows.Terminal.Wsl"
+        "guid": "{2ece5bfe-50ed-5f3a-ab87-5cd4baafed2b}",
+        "hidden": false,
+        "name": "Git Bash",
+        "source": "Git"
+      },
+      {
+        "guid": "{75b42100-050e-5bfa-b5f0-d5e1b19ddf8b}",
+        "hidden": false,
+        "name": "podman-machine-default",
+        "source": "Microsoft.WSL"
       }
     ]
   },
-  "schemes": [],
+  "schemes": [
+    {
+      "background": "#000000",
+      "black": "#0C0C0C",
+      "blue": "#0037DA",
+      "brightBlack": "#767676",
+      "brightBlue": "#3B78FF",
+      "brightCyan": "#61D6D6",
+      "brightGreen": "#16C60C",
+      "brightPurple": "#B4009E",
+      "brightRed": "#E74856",
+      "brightWhite": "#F2F2F2",
+      "brightYellow": "#F9F1A5",
+      "cursorColor": "#FFFFFF",
+      "cyan": "#3A96DD",
+      "foreground": "#FFFFFF",
+      "green": "#13A10E",
+      "name": "Color Scheme 16",
+      "purple": "#881798",
+      "red": "#C50F1F",
+      "selectionBackground": "#FFFFFF",
+      "white": "#CCCCCC",
+      "yellow": "#C19C00"
+    },
+    {
+      "background": "#2E3440",
+      "black": "#3B4252",
+      "blue": "#81A1C1",
+      "brightBlack": "#4C566A",
+      "brightBlue": "#81A1C1",
+      "brightCyan": "#8FBCBB",
+      "brightGreen": "#A3BE8C",
+      "brightPurple": "#B48EAD",
+      "brightRed": "#BF616A",
+      "brightWhite": "#ECEFF4",
+      "brightYellow": "#EBCB8B",
+      "cursorColor": "#81A1C1",
+      "cyan": "#88C0D0",
+      "foreground": "#D8DEE9",
+      "green": "#A3BE8C",
+      "name": "Nord",
+      "purple": "#B48EAD",
+      "red": "#BF616A",
+      "selectionBackground": "#434C5E",
+      "white": "#E5E9F0",
+      "yellow": "#EBCB8B"
+    }
+  ],
   "themes": [],
   "windowingBehavior": "useAnyExisting"
 }

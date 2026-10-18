@@ -228,6 +228,7 @@ hl.bind(mainMod .. " + Y", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind("CTRL + SHIFT + L", hl.dsp.exec_cmd(hyprlock))
+hl.bind("SUPER + L", hl.dsp.exec_cmd(hyprlock))
 
 -- Move / swap windows
 hl.bind(mainMod .. " + SHIFT + H", hl.dsp.window.move({ direction = "l" }))
