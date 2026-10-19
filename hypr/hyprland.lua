@@ -7,20 +7,19 @@
 
 --local wallpaper       = "~/.config/hypr/wallpapers/dark-galaxy.3840x2160.mp4"
 --local wallpaper       = "~/.config/hypr/wallpapers/nord-graph-1080p.mp4"
-local wallpaper       = "~/.config/hypr/wallpapers/nord-graph-2160p.mp4"
+local wallpaper = "~/.config/hypr/wallpapers/nord-graph-2160p.mp4"
 --local wallpaper       = "~/.config/hypr/wallpapers/nord-02-topography-3840x2160.png"
-local mpvpaperOpts    = "no-audio loop-playlist hwdec=auto panscan=1.0"
-local monitor1        = "DP-1"
-local monitor2        = "DP-2"
-local monitor3        = "HDMI-A-1"
+local mpvpaperOpts = "no-audio loop-playlist hwdec=auto panscan=1.0"
+local monitor1 = "DP-1"
+local monitor2 = "DP-2"
+local monitor3 = "HDMI-A-1"
 
-local terminal        = "ghostty"
-local browser         = "google-chrome-stable"
-local fileManager     = "ghostty --title=yazi -e yazi"
-local menu            = "rofi -show drun"
-local hyprlock        = "hyprlock"
+local terminal = "ghostty"
+local browser = "google-chrome-stable"
+local fileManager = "ghostty --title=yazi -e yazi"
+local menu = "rofi -show drun"
+local hyprlock = "hyprlock"
 local passwordManager = "1password"
-
 
 ------------------
 ---- MONITORS ----
@@ -28,55 +27,53 @@ local passwordManager = "1password"
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 -- (Defaults; declare explicit monitors here if you want fixed modes.)
 hl.monitor({
-  output   = "",
-  mode     = "preferred",
-  position = "auto",
-  scale    = "auto",
+	output = "",
+	mode = "preferred",
+	position = "auto",
+	scale = "auto",
 })
 
 hl.monitor({
-  output   = monitor1,
-  mode     = "preferred",
-  position = "0x0",
-  scale    = 1,
+	output = monitor1,
+	mode = "preferred",
+	position = "0x0",
+	scale = 1,
 })
 
 hl.monitor({
-  output   = monitor2,
-  mode     = "preferred",
-  position = "2560x0",
-  scale    = 1,
+	output = monitor2,
+	mode = "preferred",
+	position = "2560x0",
+	scale = 1,
 })
 
 hl.monitor({
-  output   = monitor3,
-  mode     = "preferred",
-  position = "320x1440",
-  scale    = 1,
+	output = monitor3,
+	mode = "preferred",
+	position = "320x1440",
+	scale = 1,
 })
-
 
 -------------------
 ---- AUTOSTART ----
 -------------------
 -- See https://wiki.hypr.land/Configuring/Basics/Autostart/
 hl.on("hyprland.start", function()
-  hl.exec_cmd(hyprlock)
-  hl.exec_cmd(terminal)
-  -- Legacy [workspace 2 silent] / [workspace 5 silent] prefixes translate
-  -- to per-spawn window rules passed as the second arg to exec_cmd.
-  hl.exec_cmd(browser, { workspace = "2 silent" })
-  hl.exec_cmd(passwordManager, { workspace = "5 silent" })
-  hl.exec_cmd("nm-applet --indicator")
-  hl.exec_cmd("waybar")
-  hl.exec_cmd("dunst")
-  hl.exec_cmd("hyprpolkitagent")
-  hl.exec_cmd("mpvpaper -o '" .. mpvpaperOpts .. "' ALL " .. wallpaper)
-  hl.exec_cmd([[gsettings set org.gnome.desktop.interface gtk-theme "Nordic-bluish-accent"]])
-  hl.exec_cmd([[gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"]])
-  hl.exec_cmd("wl-clip-persist --clipboard regular")
+	hl.exec_cmd(hyprlock)
+	hl.exec_cmd(terminal)
+	-- Legacy [workspace 2 silent] / [workspace 5 silent] prefixes translate
+	-- to per-spawn window rules passed as the second arg to exec_cmd.
+	hl.exec_cmd(browser, { workspace = "2 silent" })
+	hl.exec_cmd(passwordManager, { workspace = "5 silent" })
+	hl.exec_cmd("nm-applet --indicator")
+	hl.exec_cmd("waybar")
+	hl.exec_cmd("dunst")
+	hl.exec_cmd("hyprpolkitagent")
+	hl.exec_cmd("mpvpaper -o '" .. mpvpaperOpts .. "' ALL " .. wallpaper)
+	hl.exec_cmd([[gsettings set org.gnome.desktop.interface gtk-theme "Nordic-bluish-accent"]])
+	hl.exec_cmd([[gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"]])
+	hl.exec_cmd("wl-clip-persist --clipboard regular")
 end)
-
 
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
@@ -86,80 +83,78 @@ hl.env("XCURSOR_SIZE", "24")
 hl.env("HYPRCURSOR_SIZE", "24")
 hl.env("QT_QPA_PLATFORMTHEME", "qt6ct")
 
-
 -----------------------
 ---- LOOK AND FEEL ----
 -----------------------
 -- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 hl.config({
-  general = {
-    gaps_in          = 5,
-    gaps_out         = 10,
-    border_size      = 2,
+	general = {
+		gaps_in = 5,
+		gaps_out = 10,
+		border_size = 2,
 
-    col              = {
-      active_border   = "rgba(81a1c1ee)",
-      inactive_border = "rgba(595959aa)",
-    },
+		col = {
+			active_border = "rgba(81a1c1ee)",
+			inactive_border = "rgba(595959aa)",
+		},
 
-    resize_on_border = true,
-    allow_tearing    = false,
-    layout           = "dwindle",
-  },
+		resize_on_border = true,
+		allow_tearing = false,
+		layout = "dwindle",
+	},
 
-  decoration = {
-    rounding         = 10,
-    rounding_power   = 2,
+	decoration = {
+		rounding = 10,
+		rounding_power = 2,
 
-    active_opacity   = 1.0,
-    inactive_opacity = 1.0,
+		active_opacity = 1.0,
+		inactive_opacity = 1.0,
 
-    shadow           = {
-      enabled      = true,
-      range        = 4,
-      render_power = 3,
-      color        = 0xee1a1a1a,
-    },
+		shadow = {
+			enabled = true,
+			range = 4,
+			render_power = 3,
+			color = 0xee1a1a1a,
+		},
 
-    blur             = {
-      enabled  = true,
-      size     = 3,
-      passes   = 1,
-      vibrancy = 0.1696,
-    },
-  },
+		blur = {
+			enabled = true,
+			size = 3,
+			passes = 1,
+			vibrancy = 0.1696,
+		},
+	},
 
-  animations = {
-    enabled = true,
-  },
+	animations = {
+		enabled = true,
+	},
 
-  dwindle = {
-    preserve_split = true,
-  },
+	dwindle = {
+		preserve_split = true,
+	},
 
-  master = {
-    new_status = "master",
-  },
+	master = {
+		new_status = "master",
+	},
 
-  misc = {
-    force_default_wallpaper = 1,
-    disable_hyprland_logo   = true,
-  },
+	misc = {
+		force_default_wallpaper = 1,
+		disable_hyprland_logo = true,
+	},
 
-  input = {
-    kb_layout    = "us",
-    kb_variant   = "",
-    kb_model     = "",
-    kb_options   = "",
-    kb_rules     = "",
-    follow_mouse = 1,
-    sensitivity  = 0,
-    touchpad     = {
-      natural_scroll = false,
-    },
-  },
+	input = {
+		kb_layout = "us",
+		kb_variant = "",
+		kb_model = "",
+		kb_options = "",
+		kb_rules = "",
+		follow_mouse = 1,
+		sensitivity = 0,
+		touchpad = {
+			natural_scroll = false,
+		},
+	},
 })
-
 
 -- Bezier curves & animations
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
@@ -186,7 +181,6 @@ hl.animation({ leaf = "workspaces", enabled = true, speed = 1.94, bezier = "almo
 hl.animation({ leaf = "workspacesIn", enabled = true, speed = 1.21, bezier = "almostLinear", style = "fade" })
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = 1.94, bezier = "almostLinear", style = "fade" })
 
-
 -----------------------
 ---- WORKSPACE RULES --
 -----------------------
@@ -201,16 +195,14 @@ hl.workspace_rule({ workspace = "7", monitor = monitor2 })
 hl.workspace_rule({ workspace = "8", monitor = monitor2 })
 hl.workspace_rule({ workspace = "9", monitor = monitor3 })
 
-
 ------------------
 ---- DEVICES -----
 ------------------
 -- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Devices/
 hl.device({
-  name        = "epic-mouse-v1",
-  sensitivity = -0.5,
+	name = "epic-mouse-v1",
+	sensitivity = -0.5,
 })
-
 
 ---------------------
 ---- KEYBINDINGS ----
@@ -227,7 +219,6 @@ hl.bind(mainMod .. " + Q", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Y", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
-hl.bind("CTRL + SHIFT + L", hl.dsp.exec_cmd(hyprlock))
 hl.bind("SUPER + L", hl.dsp.exec_cmd(hyprlock))
 
 -- Move / swap windows
@@ -245,9 +236,9 @@ hl.bind(mainMod .. " + down", hl.dsp.focus({ direction = "down" }))
 
 -- Workspaces: switch (mainMod + N) and move active window (CTRL + SHIFT + N)
 for i = 1, 10 do
-  local key = i % 10 -- 10 -> 0
-  hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
-  hl.bind("CTRL + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+	local key = i % 10 -- 10 -> 0
+	hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
+	hl.bind("SUPER + " .. key, hl.dsp.window.move({ workspace = i }))
 end
 
 -- Waybar restart
@@ -258,15 +249,21 @@ hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("pkill waybar && waybar"))
 hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("~/.config/hypr/scripts/gaming-mode.sh " .. monitor2))
 
 -- Screen recording (wf-recorder + slurp). Toggle: region on first press, stop on second.
-hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(
-  [[sh -c 'mkdir -p "$HOME/Videos"; if pgrep -x wf-recorder >/dev/null; then pkill -INT -x wf-recorder; ]] ..
-  [[notify-send "Recording saved"; else geom=$(slurp) || exit 0; ]] ..
-  [[wf-recorder -g "$geom" -f "$HOME/Videos/rec-$(date +%Y%m%d-%H%M%S).mp4" & ]] ..
-  [[notify-send "Recording started"; fi']]))
+hl.bind(
+	mainMod .. " + Z",
+	hl.dsp.exec_cmd(
+		[[sh -c 'mkdir -p "$HOME/Videos"; if pgrep -x wf-recorder >/dev/null; then pkill -INT -x wf-recorder; ]]
+			.. [[notify-send "Recording saved"; else geom=$(slurp) || exit 0; ]]
+			.. [[wf-recorder -g "$geom" -f "$HOME/Videos/rec-$(date +%Y%m%d-%H%M%S).mp4" & ]]
+			.. [[notify-send "Recording started"; fi']]
+	)
+)
 
 -- mpvpaper wallpaper reload
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(
-  "sh -c 'pkill mpvpaper; mpvpaper -o \"" .. mpvpaperOpts .. "\" ALL " .. wallpaper .. "'"))
+hl.bind(
+	mainMod .. " + C",
+	hl.dsp.exec_cmd("sh -c 'pkill mpvpaper; mpvpaper -o \"" .. mpvpaperOpts .. '" ALL ' .. wallpaper .. "'")
+)
 
 -- Scratchpad (special workspace)
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
@@ -281,14 +278,26 @@ hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
 -- Multimedia keys (bindel: locked + repeating)
-hl.bind("XF86AudioRaiseVolume", hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
-  { locked = true, repeating = true })
-hl.bind("XF86AudioLowerVolume", hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
-  { locked = true, repeating = true })
-hl.bind("XF86AudioMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
-  { locked = true, repeating = true })
-hl.bind("XF86AudioMicMute", hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
-  { locked = true, repeating = true })
+hl.bind(
+	"XF86AudioRaiseVolume",
+	hl.dsp.exec_cmd("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioLowerVolume",
+	hl.dsp.exec_cmd("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMute",
+	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"),
+	{ locked = true, repeating = true }
+)
+hl.bind(
+	"XF86AudioMicMute",
+	hl.dsp.exec_cmd("wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"),
+	{ locked = true, repeating = true }
+)
 hl.bind("XF86MonBrightnessUp", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%+"), { locked = true, repeating = true })
 hl.bind("XF86MonBrightnessDown", hl.dsp.exec_cmd("brightnessctl -e4 -n2 set 5%-"), { locked = true, repeating = true })
 
@@ -298,13 +307,12 @@ hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = tr
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
 
-
 --------------------------------
 ---- WINDOWS AND WORKSPACES ----
 --------------------------------
 -- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 hl.window_rule({
-  name           = "suppress-maximize",
-  match          = { class = ".*" },
-  suppress_event = "maximize",
+	name = "suppress-maximize",
+	match = { class = ".*" },
+	suppress_event = "maximize",
 })
