@@ -218,6 +218,8 @@ hl.bind(mainMod .. " + F", hl.dsp.exec_cmd(fileManager))
 hl.bind(mainMod .. " + Q", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + Y", hl.dsp.window.fullscreen({ action = "toggle" }))
 hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
+-- Tap SUPER alone to open the launcher (bindr: fires on release of SUPER_L)
+hl.bind("SUPER + SUPER_L", hl.dsp.exec_cmd(menu), { release = true })
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind("SUPER + L", hl.dsp.exec_cmd(hyprlock))
 
@@ -244,9 +246,12 @@ end
 -- Waybar restart
 hl.bind(mainMod .. " + X", hl.dsp.exec_cmd("pkill waybar && waybar"))
 
--- Gaming mode: fullscreen focused window and disable the secondary monitor so
+-- Gaming mode: fullscreen focused window and disable the secondary monitors so
 -- the cursor is physically confined to the primary. See scripts/gaming-mode.sh.
-hl.bind(mainMod .. " + G", hl.dsp.exec_cmd("~/.config/hypr/scripts/gaming-mode.sh " .. monitor2))
+hl.bind(
+	"SUPER + G",
+	hl.dsp.exec_cmd("~/.config/hypr/scripts/gaming-mode.sh " .. monitor2 .. ":2560x0 " .. monitor3 .. ":320x1440")
+)
 
 -- Screen recording (wf-recorder + slurp). Toggle: region on first press, stop on second.
 hl.bind(
