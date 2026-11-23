@@ -3,7 +3,7 @@ local capabilities = require 'cmp_nvim_lsp'.default_capabilities()
 local lsp_flags = {
   debounce_text_changes = 150,
 }
-local schema_dir = "file://" .. vim.fn.expand("~/.config/nvim/schemas/")
+local schema_dir = 'file://' .. vim.fn.expand('~/.config/nvim/schemas/')
 
 vim.lsp.log.set_level(vim.log.levels.OFF)
 
@@ -12,10 +12,8 @@ vim.diagnostic.config({
     --severity = vim.diagnostic.severity.WARN, -- only show warnings
     source = true, -- show source like "pyright"
     spacing = 2,
-    prefix = "●",
-    format = function(diagnostic)
-      return diagnostic.message
-    end,
+    prefix = '●',
+    format = function(diagnostic) return diagnostic.message end,
   },
   signs = true,
   underline = true,
@@ -24,7 +22,7 @@ vim.diagnostic.config({
 })
 
 vim.lsp.config('bashls', {
-  capabilities = capabilities
+  capabilities = capabilities,
 })
 vim.lsp.enable('bashls')
 
@@ -33,21 +31,19 @@ vim.lsp.config('nixd', {
   settings = {
     nixd = {
       nixpkgs = {
-        expr = "import <nixpkgs> { }",
+        expr = 'import <nixpkgs> { }',
       },
       formatting = {
-        command = { "nixfmt" },
-      }
-    }
-  }
+        command = { 'nixfmt' },
+      },
+    },
+  },
 })
 vim.lsp.enable('nixd')
 
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = "*.nix",
-  callback = function()
-    vim.lsp.buf.format({ async = false })
-  end,
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = '*.nix',
+  callback = function() vim.lsp.buf.format({ async = false }) end,
 })
 
 vim.lsp.config('dockerls', {
@@ -74,16 +70,16 @@ vim.lsp.config('ts_ls', {
   init_options = {
     plugins = {
       {
-        name = "@vue/typescript-plugin",
-        location = "/usr/local/lib/node_modules/@vue/typescript-plugin",
-        languages = { "javascript", "typescript", "vue" },
+        name = '@vue/typescript-plugin',
+        location = '/usr/local/lib/node_modules/@vue/typescript-plugin',
+        languages = { 'javascript', 'typescript', 'vue' },
       },
     },
   },
   filetypes = {
-    "javascript",
-    "typescript",
-    "vue",
+    'javascript',
+    'typescript',
+    'vue',
   },
 })
 vim.lsp.enable('ts_ls')
@@ -93,8 +89,8 @@ vim.lsp.config('lua_ls', {
     if client.workspace_folders then
       local path = client.workspace_folders[1].name
       if
-          path ~= vim.fn.stdpath('config')
-          and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
+        path ~= vim.fn.stdpath('config')
+        and (vim.uv.fs_stat(path .. '/.luarc.json') or vim.uv.fs_stat(path .. '/.luarc.jsonc'))
       then
         return
       end
@@ -116,12 +112,12 @@ vim.lsp.config('lua_ls', {
       workspace = {
         checkThirdParty = false,
         library = {
-          vim.env.VIMRUNTIME
+          vim.env.VIMRUNTIME,
           -- Depending on the usage, you might want to add additional paths
           -- here.
           -- '${3rd}/luv/library'
           -- '${3rd}/busted/library'
-        }
+        },
         -- Or pull in all of 'runtimepath'.
         -- NOTE: this is a lot slower and will cause issues when working on
         -- your own configuration.
@@ -129,12 +125,12 @@ vim.lsp.config('lua_ls', {
         -- library = {
         --   vim.api.nvim_get_runtime_file('', true),
         -- }
-      }
+      },
     })
   end,
   settings = {
-    Lua = {}
-  }
+    Lua = {},
+  },
 })
 vim.lsp.enable('lua_ls')
 
@@ -144,56 +140,56 @@ vim.lsp.config('yamlls', {
     yaml = {
       schemaStore = {
         enable = false,
-        url = "",
+        url = '',
       },
       format = {
-        enable = true,
+        enable = false,
       },
       schemas = {
-        [schema_dir .. "taskfile.json"] = { "Taskfile.yml", "Taskfile.yaml" },
-        [schema_dir .. "github-workflow.json"] = "/.github/workflows/*",
-        ["https://json.schemastore.org/kustomization.json"] = {
-          "kustomization.yaml",
-          "kustomization.yml",
+        [schema_dir .. 'taskfile.json'] = { 'Taskfile.yml', 'Taskfile.yaml' },
+        [schema_dir .. 'github-workflow.json'] = '/.github/workflows/*',
+        ['https://json.schemastore.org/kustomization.json'] = {
+          'kustomization.yaml',
+          'kustomization.yml',
         },
-        [schema_dir .. "argocd-application.json"] = {
-          "app.yaml",
-          "application.yaml",
-          "app.yml",
-          "application.yml",
+        [schema_dir .. 'argocd-application.json'] = {
+          'app.yaml',
+          'application.yaml',
+          'app.yml',
+          'application.yml',
         },
-        [schema_dir .. "argocd-applicationset.json"] = {
-          "appset.yaml",
-          "applicationset.yaml",
-          "appset.yml",
-          "applicationset.yml",
+        [schema_dir .. 'argocd-applicationset.json'] = {
+          'appset.yaml',
+          'applicationset.yaml',
+          'appset.yml',
+          'applicationset.yml',
         },
-        [schema_dir .. "argocd-appproject.json"] = {
-          "appproject.yaml",
-          "project.yaml",
-          "appproject.yml",
-          "project.yml",
+        [schema_dir .. 'argocd-appproject.json'] = {
+          'appproject.yaml',
+          'project.yaml',
+          'appproject.yml',
+          'project.yml',
         },
-        ["kubernetes"] = {
-          "namespace.yaml",
-          "namespace.yml",
-          "deployment.yaml",
-          "deployment.yml",
-          "service.yaml",
-          "service.yml",
-          "secret.yaml",
-          "secret.yaml",
-          "configmap.yml",
-          "configmap.yml",
-          "ingress.yml",
-          "ingress.yml",
+        ['kubernetes'] = {
+          'namespace.yaml',
+          'namespace.yml',
+          'deployment.yaml',
+          'deployment.yml',
+          'service.yaml',
+          'service.yml',
+          'secret.yaml',
+          'secret.yaml',
+          'configmap.yml',
+          'configmap.yml',
+          'ingress.yml',
+          'ingress.yml',
         },
       },
     },
   },
   filetypes = {
-    "yaml",
-    "yml",
+    'yaml',
+    'yml',
   },
 })
 vim.lsp.enable('yamlls')
@@ -206,23 +202,22 @@ vim.lsp.config('terraformls', {
 vim.lsp.enable('terraformls')
 
 vim.lsp.config('tflint', {
-  capabilities = capabilities
+  capabilities = capabilities,
 })
 vim.lsp.enable('tflint')
 
 vim.lsp.config('terragrunt_ls', {
   cmd = { vim.fn.expand('~/go/bin/terragrunt-ls') },
-  capabilities = capabilities
+  capabilities = capabilities,
 })
 vim.lsp.enable('terragrunt_ls')
 
 -- terraform fmt on save; uses the CLI since tfvars has no LSP attached
-vim.api.nvim_create_autocmd("BufWritePre", {
-  pattern = { "*.tf", "*.tfvars" },
+vim.api.nvim_create_autocmd('BufWritePre', {
+  pattern = { '*.tf', '*.tfvars' },
   callback = function(args)
     local lines = vim.api.nvim_buf_get_lines(args.buf, 0, -1, false)
-    local result = vim.system({ 'terraform', 'fmt', '-' },
-      { stdin = table.concat(lines, '\n') .. '\n' }):wait()
+    local result = vim.system({ 'terraform', 'fmt', '-' }, { stdin = table.concat(lines, '\n') .. '\n' }):wait()
     if result.code ~= 0 then
       return
     end
@@ -237,25 +232,25 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 
 vim.lsp.config('ansiblels', {
   capabilities = capabilities,
-  filetypes = { "yml" },
+  filetypes = { 'yml' },
   settings = {
     ansible = {
-      path = "ansible"
+      path = 'ansible',
     },
     executionEnvironment = {
-      enabled = false
+      enabled = false,
     },
     python = {
-      interpreterPath = "python"
+      interpreterPath = 'python',
     },
     validation = {
       enabled = true,
       lint = {
         enabled = true,
-        path = "ansible-lint"
-      }
-    }
-  }
+        path = 'ansible-lint',
+      },
+    },
+  },
 })
 vim.lsp.enable('ansiblels')
 

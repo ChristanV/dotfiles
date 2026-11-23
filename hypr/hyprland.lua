@@ -253,6 +253,16 @@ hl.bind(
 	hl.dsp.exec_cmd("~/.config/hypr/scripts/gaming-mode.sh " .. monitor2 .. ":2560x0 " .. monitor3 .. ":320x1440")
 )
 
+hl.on("window.open", function(window)
+	local state = io.open("/tmp/hypr-gaming-mode", "r")
+	if not state or not window then
+		return
+	end
+	state:close()
+	hl.dispatch(hl.dsp.focus({ window = window }))
+	hl.dispatch(hl.dsp.window.fullscreen({ action = "set", window = window }))
+end)
+
 -- Screen recording (wf-recorder + slurp). Toggle: region on first press, stop on second.
 hl.bind(
 	mainMod .. " + Z",
